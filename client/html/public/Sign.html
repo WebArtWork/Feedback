@@ -1,0 +1,51 @@
+{% extends '__index.html' %}
+
+{% block body %}
+	<box ng-controller="Auth" class="explore-container">
+		<cel style="width: 50%" class="user-container">
+			<box>
+				<cma>
+					<img src="" alt="">
+				</cma>
+			</box>
+		</cel>
+		<cel class="aside-container">
+			<box>
+				<cma>
+					<form id="SignupFormID" ng-submit="doSignup()">
+						<h1 class="sign-in-up--title">Sign Up</h1>
+						<label ng-class="{error: user.err==1}">
+							<h2>E-mail</h2>
+							<input class="input" type="email" name="username" ng-model="user.username" placeholder="email" autocomplete="email">
+						</label>
+						<label ng-class="{error: user.err==2}">
+							<h2>Password</h2>
+							<input class="input" type="password" ng-model="user.password" name="password" placeholder="pass phrase" autocomplete="current-password">
+						</label>
+
+						<div class="g-recaptcha-outer">
+							<div class="g-recaptcha-inner">
+								<div class="g-recaptcha" ng-class="{error: user.err==3}" vc-recaptcha theme="'light'" key="model.key" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" ></div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn">Sign</button>
+					</form>
+				</cma>
+			</box>
+		</cel>
+	</box>
+	<!-- Include the JS ReCaptcha API -->
+	<script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+{% endblock %}
+
+
+{% block script %}
+	<script src="/gen/public-min.js"></script>
+	<script>
+		var app = angular.module('ngapp',['wcom', 'vcRecaptcha']);
+	</script>
+	<script src="/js/wcom/wcom.js"></script>
+	<script src="/js/crud.js"></script>
+	<script src="/js/public.js"></script>
+{% endblock %}

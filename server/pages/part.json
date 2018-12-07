@@ -1,0 +1,48 @@
+{
+	"name": "Pages",
+	"router": [{
+		"name": "Basic",
+		"src": "router.js"
+	}],
+	"config": "config.js",
+	"dependencies": {
+	},
+	"crud": {
+		"updatesAll": [{
+			"keys": ["view","template","title","description","keywords","keywords_view","image","html", "htmls"],
+			"name": ""
+		}],
+		"unique_field": [{
+			"key": "url",
+			"name": ""
+		}]
+	},
+
+	"ignore_urls": ["/", "/group/*", "/groups"],
+	"templates": [{
+		"name": "Default Template",
+		"file": "default.html",
+		"app": ""
+	},{
+		"name": "Default Dark Template",
+		"file": "dark.html",
+		"app": ""
+	},{
+		"name": "Memo Wallet",
+		"file": "memo.html",
+		"app": "",
+		"features": [{
+			"field": "",
+			"html": ""
+		}]
+	},{
+		"name": "New Template",
+		"file": "new.html"
+	}],
+	"features": [{
+		"name": "",
+		"app": "",
+		"field": "",
+		"html": ""
+	}]
+}

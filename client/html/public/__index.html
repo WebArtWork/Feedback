@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="ngapp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block header %}
+		<title>WAW Framework</title>
+		<meta name="description" content="Initial waw client under angular 1.x and scss.">
+		<meta name="keywords" content="waw, waw framework">
+		<meta name="author" content="Honchar Denys">
+	{% endblock %}
+	<link rel="stylesheet" type="text/css" href="/gen/public.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-11"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-78236546-11');
+	</script>
+
+</head>
+<body>
+	<box class="container">
+		<row class="row">
+			{% block topbar %}
+			<box class="topbar-container">
+				<lma class="topbar-logo"><a href="/">WAW LOGO</a></lma>
+				{% if !user %}
+					<cma class="auth-btn"><a href="/Login">Login</a></cma>
+					<cma class="auth-btn"><a href="/Sign">Sign Up</a></cma>
+				{% endif %}
+				
+				{% if user %}
+					<cma class="d-flex top-nav-menu">
+
+						<box ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
+							<cma class="top_profile__name"><span>{{{user.name}}}</span></cma>
+							<cma class="top_profile__avatar">
+								<img src="{{{user.avatarUrl}}}" alt="User Face">
+							</cma>
+							<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
+						</box>
+						
+						<box ng-class="{'active' : btn}" class="top_profile_menu">
+							{% if user&&user.is.admin %}
+								<row><a href="/Admin">Admin</a></row>
+							{% endif %}
+							<row class="profile__edit"><a href="/MyProfile">My Profile</a></row>
+							<row class="profile__logout"><a href="/api/user/logout">Log Out</a></row>
+						</box>
+
+					</cma>
+				{% endif %}
+			</box>
+			{% endblock %}
+		</row>
+		<row class="row">
+			{% block body %}{% endblock %}
+		</row>
+	</box>
+	<!-- Script -->
+	{% block script %}
+		<script src="/gen/public-min.js"></script>
+		<script>
+			var app = angular.module('ngapp',['wcom']);
+		</script>
+		<script src="/js/wcom/wcom.js"></script>
+		<script src="/js/crud.js"></script>
+		<script src="/js/public.js"></script>
+	{% endblock %}
+</body>
+</html>

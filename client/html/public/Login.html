@@ -1,0 +1,30 @@
+{% extends '__index.html' %}
+{% block body %}
+	<box class="explore-container">
+		<cel style="width: 50%" class="user-container">
+			<box>
+				<cma>
+					<img src="" alt="">
+				</cma>
+			</box>
+		</cel>
+		<cel class="aside-container">
+			<box>
+				<cma>
+					<form action="/api/user/login" method="POST">
+						<h1 class="sign-in-up--title">Login</h1>
+						<label>
+							<h2>E-mail</h2>
+							<input class="input" type="email" name="username" placeholder="email">
+						</label>
+						<label>
+							<h2>Password</h2>
+							<input class="input" type="password" name="password" placeholder="pass phrase">
+						</label>
+						<button class="btn">Sign</button>
+					</form>
+				</cma>
+			</box>
+		</cel>
+	</box>
+{% endblock %}

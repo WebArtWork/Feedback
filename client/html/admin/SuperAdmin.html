@@ -1,0 +1,27 @@
+<scroll>
+	<box class="main-box">
+		<row class="p-cel userAdmin__items">
+			<cel>avatar</cel>
+			<cel>email</cel>
+			<cel>architect</cel>
+		</row>
+		<!-- |filter:{'is.admin': true} -->
+		<row class="userAdmin__edits" ng-repeat="user in u.users" ng-if="user.is.admin">
+			<div class="p-cel info">
+				<cel class="info-foto">
+					<img ng-src="{{user.avatarUrl}}" alt="">
+				</cel>
+				<div>
+					<cel>{{user.email}}</cel>
+				</div>
+			</div>
+			<cel class="p-cel newUser">
+				<button class="btn" ng-click="user.architect.push({}); u.update(user);">New</button>
+				<div ng-repeat="arch in user.architect">
+					<input class="input" type="text" ng-model="arch.name" ng-change="u.update(user);">
+					<select ng-model="arch.what" ng-options="what for what in ['text', 'bool', 'number']" ng-change="u.updateAfterWhile(user)"></select>
+				</div>
+			</cel>
+		</row>
+	</box>
+</scroll>

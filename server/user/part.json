@@ -1,0 +1,35 @@
+{
+	"name": "User",
+	"router": [{
+		"name": "Basic",
+		"src": "router.js"
+	}, {
+		"name": "Auth",
+		"src": "auth.js"
+	}],
+	"crud": {
+		"get": ["admin"],
+		"updatesAll": [{
+			"keys": ["gender","name","birth","skills","data"],
+			"name": ""
+		},{
+			"keys": ["gender","name","birth","skills","data","kind"],
+			"name": "admin"
+		},{
+			"keys": ["gender","name","birth","skills","data","is","kind","architect"],
+			"name": "super"
+		}],
+		"updates": [],
+		"deletes": ["admin"],
+		"unique_field": [{
+			"key": "email",
+			"name": "email"
+		}]
+	},
+	"dependencies": {
+		"express-recaptcha": "*",
+		"passport-local": "*",
+		"bcrypt-nodejs": "*",
+		"mongoose": "*"
+	}
+}

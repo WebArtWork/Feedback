@@ -1,0 +1,18 @@
+{% extends '__index.html' %}
+
+{% block body %}
+	<h2>{{{user.name}}}</h2>
+
+	<div>
+		<h3>My Skills</h3>
+		{% for skill in user.skills %}
+		<span>{{{skill}}}</span>
+		{% endfor %}
+	</div>
+
+	<h3>{{{user.birth|date('Y-m-d')}}}</h3>
+
+	<h3>{{{user.gender}}}</h3>
+
+	<img src="{{{user.avatarUrl}}}" alt="User Face">
+{% endblock %}

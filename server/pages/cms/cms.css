@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+body {
+	background-color: #E7E7E9;
+	font-family: "Open Sans", sans-serif;
+}
+button{
+	outline: none; 
+  	border: 0;
+}
+.topbar {
+	background-color: #273341;
+	overflow: hidden;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, .3);
+	height: 45px;
+	padding: 0;
+}
+.topbar a {
+	color: #FFFFFF;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	height: 46px;
+	padding: 12px 10px 0px 10px;
+}
+.topbar a:first-child {
+	padding-left: 25px;
+}
+a.wawlogo {
+	fill: #FFFFFF;
+}
+a.wawlogo:hover, a.wawlogo:active{
+	-webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+	filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+}
+.topbar button {
+	background-color: #273341;
+	height: 45px;
+	float: right;
+	padding-right: 25px;
+}
+.topbar button svg{
+	fill: #2B71A2;
+}
+.topbar button svg:hover, a.back:hover {
+	fill: #5E94D5;
+	-webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+	filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+}
+.topbar button svg:active, a.back:active {
+	fill: #2B71A2;
+	-webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+	filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+}
+a.back {
+	padding: 10px 10px 0px 25px;
+	fill: #2B71A2;
+}
+.sidebar {
+	margin: 0;
+ 	padding: 0;
+ 	width: 260px;
+ 	height: 100%;
+ 	background: linear-gradient(to bottom, #8ec5fc 0%, #5e94d5 100%);
+ 	float: right;
+ 	overflow: auto;
+}

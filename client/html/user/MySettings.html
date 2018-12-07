@@ -1,0 +1,21 @@
+<div class="p-cel main-box">
+	<div class="userSettings">
+		<label class="m-10 d-flex">
+			<h2>Old Password</h2>
+			<input class="input" type="text" ng-model="oldPassword">
+		</label>
+		<label class="m-10 d-flex">
+			<h2>New Password</h2>
+			<input class="input" type="text" ng-model="newPassword">
+		</label>
+		<label class="m-10 d-flex">
+			<h2>Repeat New Password</h2>
+			<input class="input" type="text" ng-model="repNewPassword">
+		</label>
+		<button class="btn" ng-click="u.changePassword(oldPassword, newPassword, repNewPassword)">Change</button>
+	</div>
+
+	<div>
+		<button class="btn" ng-click="u.delete()">Delete my account</button>
+	</div>
+</div>

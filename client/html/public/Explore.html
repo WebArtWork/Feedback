@@ -1,0 +1,89 @@
+{% extends '__index.html' %}
+
+{% block body %}
+	<box class="explore-container" ng-controller="Users">
+		<cel lusers class="user-container">
+			<scroll>
+				<h2>SEO VIEW</h2>
+				{% for _user in users %}
+				<span>
+					<a href="/Profile/{{{_user._id|string}}}">
+						<img src="{{{_user.avatarUrl}}}" alt="Avatar of {{{_user.name}}}">
+					</a>
+					<span>{{{_user.name}}}</span>
+					{% if _user._id|string != user._id|string %}
+					<div>
+						<button ng-if="u._id&&!u.following('{{{_user._id|string}}}')" ng-click="u.follow({_id: '{{{_user._id|string}}}'})">Follow</button>
+						<button ng-if="u._id&&u.following('{{{_user._id|string}}}')" ng-click="u.unfollow({_id: '{{{_user._id|string}}}'})">Unfollow</button>
+					</div>
+					{% endif %}
+				</span>
+				{% endfor %}
+			</scroll>
+		</cel>
+		<!-- Filters -->
+		<cel class="aside-container">
+			<box>
+				<row>
+					<label>
+						<h2>Name</h2>
+						<input class="input" type="text" placeholder="Type Name" ng-model="u.sName" ng-change="u.search()">
+					</label>
+				</row>
+				<row>
+					<h2>Age</h2>
+					<box class="age-box">
+						<cel>
+							<label>
+								<h4>From</h4>
+								<input class="input" type="number" placeholder="Type Min Age" ng-model="u.sMinAge" ng-change="u.search()">
+							</label>
+						</cel>
+						<cel>
+							<label>
+								<h4>To</h4>
+								<input class="input" type="number" placeholder="Type Max Age" ng-model="u.sMaxAge" ng-change="u.search()">
+							</label>
+						</cel>
+					</box>
+				</row>
+				<row>
+					<h2>Gender</h2>
+					<box class="gender-box">
+						<cel>
+							<label class="mark v-center">
+								<input type="checkbox" ng-model="u.sMale" ng-change="u.if_false_make_true('sFemale'); u.search()">
+								<h4>Male</h4>
+								<span class="mark_sign"><span></span></span>
+							</label>
+						</cel>
+						<cel>
+							<label class="mark v-center">
+								<input type="checkbox" ng-model="u.sFemale" ng-change="u.if_false_make_true('sMale'); u.search()">
+								<h4>Female</h4>
+								<span class="mark_sign"><span></span></span>
+							</label>
+						</cel>
+					</box>
+				</row>
+				<row>
+					<h2>By Skill</h2>
+					<!-- Add select which specify the search like: have all skills selected, have at least one of the skills selected, have few skills selected -->
+					<box>
+						<scroll>
+							<box class="skill-box">
+								<row ng-repeat="skill in u.all_skills">
+									<label class="mark v-center">
+										<input type="checkbox" ng-model="u['ss_'+skill]" ng-change="u.search()">
+										<h4>{{skill}}</h4>
+										<span class="mark_sign"><span></span></span>
+									</label>
+								</row>
+							</box>
+						</scroll>
+					</box>
+				</row>
+			</box>
+		</cel>
+	</box>
+{% endblock %} 
