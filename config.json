@@ -12,6 +12,10 @@
 		"port": 27017,
 		"db": "newdb"
 	},
+	"update":{
+		"key": "fgewrk1e298fm752q9p8vn7tky7ffbkvhqwfewrg54y56d5y32xc2",
+		"branch": "dev"
+	},
 	"passport": {
 		"local": {
 			"successRedirect": "/",
