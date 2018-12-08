@@ -10,9 +10,6 @@
 		"updatesAll": [{
 			"keys": ["name","description","feedbacks","link"],
 			"name": ""
-		},{
-			"keys": ["moderators"],
-			"name": "author"
 		}]
 	}
 }

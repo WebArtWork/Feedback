@@ -20,6 +20,7 @@ services.User = function($http, $timeout, mongo, file){
 			};
 		}
 		$http.get('/api/user/me').then(function(resp){
+			console.log(resp.data);
 			for(let key in resp.data){
 				self[key] = resp.data[key];
 			}
@@ -34,6 +35,8 @@ services.User = function($http, $timeout, mongo, file){
 				following: function(val, cb, doc){
 					cb(self.following(doc._id));
 				}
+			}, function(arr, obj) {
+				self._users = obj;
 			});
 		});
 	// Search
@@ -96,6 +99,13 @@ services.Request = function($http, $timeout, mongo, file){
 		self.requests = mongo.get('request');
 
 		this.create = function(request){
+			
+			if(!request){
+				return alert('You have to fill link.');
+			}
+			if(!request.link){
+				return alert('You have to fill link.');
+			}
 			mongo.create('request',{
 				name: request.name,
 				description: request.description,
@@ -106,22 +116,24 @@ services.Request = function($http, $timeout, mongo, file){
 		this.update = function(request){
 			mongo.updateAll('request',request);
 		}
-		this.updateFeedback = function(request, user){
+		this.updateFeedback = function(request, feedback, userId){
 			for (var i = self.requests.length - 1; i >= 0; i--) {
 				if(self.requests[i]._id==request._id){
+					console.log(request);
+					console.log(feedback);
 					self.requests[i].feedbacks.push({
-						author: user._id,
-						ui: request.ui,
-						uicomment: request.uicomment,
-						ux: request.ux,
-						uxcomment: request.uxcomment,
-						speed: request.speed,
-						speedcomment: request.speedcomment,
-						bugs: request.bugs,
-						bugscomment: request.bugscomment 
+						author: userId,
+						ui: feedback.ui,
+						uicomment: feedback.uicomment,
+						ux: feedback.ux,
+						uxcomment: feedback.uxcomment,
+						speed: feedback.speed,
+						speedcomment: feedback.speedcomment,
+						bugs: feedback.bugs,
+						bugscomment: feedback.bugscomment 
 					})
 				}
-				this.update(self.requests[i]);
+				mongo.updateAll('request',self.requests[i]);
 			}
 		}
 	// End of service
