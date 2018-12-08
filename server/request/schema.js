@@ -4,10 +4,16 @@ var Schema = mongoose.Schema({
 	description: String,
 	link: String,
 	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	estimate: Number,
-	comments: [{
+	feedbacks: [{
 		author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		text: String
+		ui: Number,
+		uicomment: String,
+		ux: Number,
+		uxcomment: String,
+		speed: Number,
+		speedcomment: String,
+		bugs: Number,
+		bugscomment: String 
 	}],
 	url: {type: String, unique: true, sparse: true, trim: true}
 });

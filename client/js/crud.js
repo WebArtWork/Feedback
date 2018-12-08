@@ -37,7 +37,7 @@ services.User = function($http, $timeout, mongo, file){
 			});
 		});
 	// Search
-		this.sMale = this.sFemale = true;
+	/*	this.sMale = this.sFemale = true;
 		this.search = function(){
 			if(self.sMinAge<1) self.sMinAge = 1;
 			if(self.sMaxAge>100) self.sMaxAge = 100;
@@ -56,7 +56,7 @@ services.User = function($http, $timeout, mongo, file){
 		}
 		this.if_false_make_true = function(prefix){
 			if(!self[prefix]) self[prefix] = true;
-		}
+		}*/
 	
 	// Custom Routes
 		this.updateAfterWhile = function(){
@@ -101,8 +101,28 @@ services.Request = function($http, $timeout, mongo, file){
 				description: request.description,
 				link: request.link,
 				_id: request._id
-			}, function(created){
 			});
+		}
+		this.update = function(request){
+			mongo.updateAll('request',request);
+		}
+		this.updateFeedback = function(request, user){
+			for (var i = self.requests.length - 1; i >= 0; i--) {
+				if(self.requests[i]._id==request._id){
+					self.requests[i].feedbacks.push({
+						author: user._id,
+						ui: request.ui,
+						uicomment: request.uicomment,
+						ux: request.ux,
+						uxcomment: request.uxcomment,
+						speed: request.speed,
+						speedcomment: request.speedcomment,
+						bugs: request.bugs,
+						bugscomment: request.bugscomment 
+					})
+				}
+				this.update(self.requests[i]);
+			}
 		}
 	// End of service
 }
