@@ -20,7 +20,6 @@ services.User = function($http, $timeout, mongo, file){
 			};
 		}
 		$http.get('/api/user/me').then(function(resp){
-			console.log(resp.data);
 			for(let key in resp.data){
 				self[key] = resp.data[key];
 			}
@@ -121,6 +120,7 @@ services.Request = function($http, $timeout, mongo, file){
 				if(self.requests[i]._id==request._id){
 					console.log(request);
 					console.log(feedback);
+					console.log(userId);
 					self.requests[i].feedbacks.push({
 						author: userId,
 						ui: feedback.ui,

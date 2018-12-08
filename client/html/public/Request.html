@@ -6,7 +6,7 @@
 
 
 <!-- feedback form -->
-<div >
+<div ng-if="" >
 	<h3>UI</h3>
 	<fieldset class="rating">
 	    <input type="radio" id="star5" name="setUIrating" ng-model="feedback.ui" ng-value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -73,37 +73,37 @@
 
 <!-- feedbacks repeat -->
 <div ng-repeat="f in request.feedbacks">
+	<div ng-controller="Users">{{u._users[f.author].nickname}}</div>
 	<h3>UI</h3>
-	<div class="star-ratings-css">{{f.ui}}
-	  <div class="star-ratings-css-top" ng-style="{'width':50+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+	<div class="star-ratings-css">
+	  <div class="star-ratings-css-top" ng-style="{'width':f.ui/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 
 	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 	</div>
-	<div>UI comment</div>
+	<div>{{f.uicomment}}</div>
 
 	<h3>UX</h3>
-	<div class="star-ratings-css">{{f.ux}}
-	  <div class="star-ratings-css-top" ng-style="{'width':50+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+	<div class="star-ratings-css">
+	  <div class="star-ratings-css-top" ng-style="{'width':f.ux/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 
 	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 	</div>
-	<div>UX comment</div>
+	<div>{{f.uxcomment}}</div>
 
 	<h3>Performance</h3>
-	<div class="star-ratings-css">{{f.speed}}
-	  <div class="star-ratings-css-top" ng-style="{'width':50+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+	<div class="star-ratings-css">
+	  <div class="star-ratings-css-top" ng-style="{'width':f.speed/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 
 	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 	</div>
-	<div>Performance comment</div>
+	<div>{{f.speedcomment}}</div>
 
 	<h3>Bugs and problems</h3>
-	<div class="star-ratings-css">{{f.bugs}}
-	  <div class="star-ratings-css-top" ng-style="{'width':50+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+	<div class="star-ratings-css">
+	  <div class="star-ratings-css-top" ng-style="{'width':f.bugs/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 
 	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 	</div>
-	<div>Bugs and problems comment</div>
 	<div>{{f.bugscomment}}</div>
 
 

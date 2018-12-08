@@ -5,6 +5,7 @@ var Schema = mongoose.Schema({
 	link: String,
 	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	feedbacks: [{
+		author: String,
 		ui: Number,
 		uicomment: String,
 		ux: Number,
