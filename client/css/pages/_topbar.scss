@@ -20,4 +20,20 @@
 	background: $primary;
 	height: 45px;
 	text-transform: uppercase;
+	cursor: pointer;
+	&:hover {
+		background: $primary-d;
+	}
+}
+.tb-logobox {
+	width: 160px;
+}
+
+.tb-login-links {
+	text-transform: uppercase;
+	.tb-link {
+		&:hover {
+			color: red;
+		}
+	}
 }
