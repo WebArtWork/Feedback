@@ -67,7 +67,7 @@
 		<script src="/gen/public-min.js"></script>
 		<script>
 			var app = angular.module('ngapp',['wcom']);
-			app.controller('main', function($scope, $http, modal, mongo){
+			app.controller('main', function($scope, $http, modal, mongo, User, Request){
 				$scope.login = function() {
 	                modal.open({
 	                    templateUrl: '/html/public/Login.html'
@@ -79,10 +79,19 @@
 	                });
 	            }
 	            $scope.request = function(request) {
+	            	var view = true;
+	            	console.log(User);
+	            	console.log(Request);
+	            	for (var i = 0; i < request.feedbacks.length; i++) {
+	            		if(request.feedbacks[i].author==User._id){
+	            			view=false;
+	            		}
+	            	}
 	                modal.open({
 	                    templateUrl: '/html/public/Request.html',
 	                    request: request,
-	                    full:true
+	                    full:true,
+	                    view:view
 	                });
 	            }
 	            $scope.createReq = function() {
