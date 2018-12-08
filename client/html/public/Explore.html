@@ -23,7 +23,7 @@
 
 	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
 	</div>
-	<div ng-if="u._id" >
+	<div ng-controller="main" ng-if="u._id" >
 		all requests
 		<div ng-click="request(r)" ng-repeat="r in req.requests">
 			{{r.name}}&&&{{r._id}}
