@@ -35,6 +35,7 @@
 			</span>
 		{% endif %}
 		<div class="tb-btn" ng-click="createReq();">Request feedack</div>
+		
 		{% if user %}
 			<div class="d-flex top-nav-menu">
 
@@ -77,9 +78,10 @@
 	                    templateUrl: '/html/public/Sign.html'
 	                });
 	            }
-	            $scope.request = function() {
+	            $scope.request = function(request) {
 	                modal.open({
-	                    templateUrl: '/html/public/Request.html'
+	                    templateUrl: '/html/public/Request.html',
+	                    request: request
 	                });
 	            }
 	            $scope.createReq = function() {

@@ -3,7 +3,7 @@
 	<form class="login-form" id="SignupFormID" ng-submit="doSignup()">
 		<label class="pb05" ng-class="{error: user.err==3}">
 			<h5>Nickname</h5>
-			<input class="input" type="text" name="nickname" placeholder="Visible for other users">
+			<input class="input" type="text" name="nickname" ng-model="user.nickname" placeholder="Visible for other users">
 		</label>
 		<label class="pb05" ng-class="{error: user.err==1}">
 			<h5>E-mail</h5>

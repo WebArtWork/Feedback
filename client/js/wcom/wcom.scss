@@ -38,7 +38,7 @@
     width: 100%;
     max-width: 640px;
     margin-top: 7%;
-    padding: 15px 15px 10px;
+    padding: 24px;
 
     -webkit-animation: modal-content 0.7s;
             animation: modal-content 0.7s;
@@ -65,7 +65,7 @@
 
 .close-m {
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 5px;
 
     display: inline-block;

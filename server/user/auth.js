@@ -54,6 +54,7 @@ module.exports = function(sd) {
 				passReqToCallback : true
 			}, function(req, username, password, done) {
 				recaptcha.verify(req, function(error) {
+					console.log(req.body);
 					User.findOne({
 						'email': username.toLowerCase()
 					}, function(err, user) {
@@ -65,6 +66,7 @@ module.exports = function(sd) {
 								admin: false
 							};
 							newUser.email = username.toLowerCase();
+							newUser.nickname = req.body.nickname;
 							newUser.password = newUser.generateHash(password);
 							newUser.save(function(err) {
 								if (err) throw err;

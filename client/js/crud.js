@@ -95,10 +95,13 @@ services.Request = function($http, $timeout, mongo, file){
 		let self = this;
 		self.requests = mongo.get('request');
 
-		this.create = function(){
-			console.log('created');
-			mongo.create('request', function(created){
-				console.log(created);
+		this.create = function(request){
+			mongo.create('request',{
+				name: request.name,
+				description: request.description,
+				link: request.link,
+				_id: request._id
+			}, function(created){
 			});
 		}
 	// End of service
