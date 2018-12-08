@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% block header %}
-		<title>Web Feedback</title>
+		<title>WAW Framework</title>
 		<meta name="description" content="Initial waw client under angular 1.x and scss.">
 		<meta name="keywords" content="waw, waw framework">
 		<meta name="author" content="Honchar Denys">
@@ -13,76 +13,60 @@
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-13"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-11"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
 
-	  gtag('config', 'UA-78236546-13');
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-78236546-11');
 	</script>
 
 </head>
 <body>
-	<box class="container">
-		<row class="row">
-			{% block topbar %}
-			<box class="topbar-container">
-				<lma class="topbar-logo"><a href="/">WEB Feedback</a></lma>
-				{% if !user %}
-					<!-- <cma class="auth-btn"><a href="/Login">Login</a></cma> -->
-					 <cma ng-controller="main" class="auth-btn" ng-click="login();"><a href="">Login</a></cma> 
-					<!-- <cma  class="auth-btn"><a href="/Sign">Sign Up</a></cma> -->
-					<cma ng-controller="main" class="auth-btn" ng-click="sign();"><a >Sign Up</a></cma>
-				{% endif %}
+	{% block topbar %}
+	<div class="topbar">
+		<div class="tb-logobox"><a href="/">WAW LOGO</a></div>
+		{% if !user %}
+			<span class="tb-login-links">
+				<a href="/Login">login</a>
+				<span class="ml05 mr05">/</span>
+				<a href="/Sign">Sign Up</a>
+			</span>
+		{% endif %}
+		<div class="tb-btn">Request feedack</div>
+		{% if user %}
+			<div class="d-flex top-nav-menu">
+
+				<div ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
+					<div class="top_profile__name"><span>{{{user.name}}}</span></div>
+					<div class="top_profile__avatar">
+						<img src="{{{user.avatarUrl}}}" alt="User Face">
+					</div>
+					<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
+				</div>
 				
-				{% if user %}
-					<cma class="d-flex top-nav-menu">
+				<div ng-class="{'active' : btn}" class="top_profile_menu">
+					{% if user&&user.is.admin %}
+						<div><a href="/Admin">Admin</a></div>
+					{% endif %}
+					<div class="profile__edit"><a href="/MyProfile">My Profile</a></div>
+					<div class="profile__logout"><a href="/api/user/logout">Log Out</a></div>
+				</div>
 
-						<box ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
-							<cma class="top_profile__name"><span>{{{user.name}}}</span></cma>
-							<cma class="top_profile__avatar">
-								<img src="{{{user.avatarUrl}}}" alt="User Face">
-							</cma>
-							<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
-						</box>
-						
-						<box ng-class="{'active' : btn}" class="top_profile_menu">
-							{% if user&&user.is.admin %}
-								<row><a href="/Admin">Admin</a></row>
-							{% endif %}
-							<row class="profile__edit"><a href="/MyProfile">My Profile</a></row>
-							<row class="profile__logout"><a href="/api/user/logout">Log Out</a></row>
-						</box>
-
-					</cma>
-				{% endif %}
-			</box>
-			{% endblock %}
-		</row>
-		
-
-		<row class="row">
-			{% block body %}{% endblock %}
-		</row>
-	</box>
+			</div>
+		{% endif %}
+	</div>
+	{% endblock %}
+	<div class="body-part">
+		{% block body %}{% endblock %}
+	</div>
 	<!-- Script -->
 	{% block script %}
 		<script src="/gen/public-min.js"></script>
 		<script>
 			var app = angular.module('ngapp',['wcom']);
-			app.controller('main', function($scope, $http, modal, mongo){
-				$scope.login = function() {
-	                modal.open({
-	                    templateUrl: '/html/public/Login.html'
-	                });
-	            }
-				$scope.sign = function() {
-	                modal.open({
-	                    templateUrl: '/html/public/Sign.html'
-	                });
-	            }
-			});
 		</script>
 		<script src="/js/wcom/wcom.js"></script>
 		<script src="/js/crud.js"></script>
