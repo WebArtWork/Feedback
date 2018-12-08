@@ -1,0 +1,22 @@
+{
+	"name": "Request",
+	"router": [{
+		"name": "Basic",
+		"src": "router.js"
+	}],
+	"dependencies": {
+	},
+	"crud": {
+		"updatesAll": [{
+			"keys": ["name","description","estimate","coments","link"],
+			"name": ""
+		},{
+			"keys": ["moderators"],
+			"name": "author"
+		}],
+		"unique_field": [{
+			"key": "url",
+			"name": ""
+		}],
+	}
+}

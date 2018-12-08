@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% block header %}
-		<title>WAW Framework</title>
+		<title>Web Feedback</title>
 		<meta name="description" content="Initial waw client under angular 1.x and scss.">
 		<meta name="keywords" content="waw, waw framework">
 		<meta name="author" content="Honchar Denys">
@@ -29,10 +29,12 @@
 		<row class="row">
 			{% block topbar %}
 			<box class="topbar-container">
-				<lma class="topbar-logo"><a href="/">WAW LOGO</a></lma>
+				<lma class="topbar-logo"><a href="/">WEB Feedback</a></lma>
 				{% if !user %}
 					<cma class="auth-btn"><a href="/Login">Login</a></cma>
+					<!-- <cma class="auth-btn" ng-click="login();">Login</cma> -->
 					<cma class="auth-btn"><a href="/Sign">Sign Up</a></cma>
+					<!-- <cma class="auth-btn"><a >Sign Up</a></cma> -->
 				{% endif %}
 				
 				{% if user %}
@@ -68,10 +70,19 @@
 		<script src="/gen/public-min.js"></script>
 		<script>
 			var app = angular.module('ngapp',['wcom']);
+			app.controller('main', function($scope, $http, modal, mongo){
+				$scope.login = function() {
+	                console.log('aga');
+	                modal.open({
+	                    templateUrl: '/html/modals/Login.html'
+	                });
+	            }
+			});
 		</script>
 		<script src="/js/wcom/wcom.js"></script>
 		<script src="/js/crud.js"></script>
 		<script src="/js/public.js"></script>
+		<script src="/js/routes.js"></script>
 	{% endblock %}
 </body>
 </html>
