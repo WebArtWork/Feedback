@@ -15,56 +15,52 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-13"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-78236546-13');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-78236546-13');
 	</script>
 
 </head>
 <body>
-	<box class="container">
-		<row class="row">
-			{% block topbar %}
-			<box ng-controller="main" class="topbar-container">
-				<lma class="topbar-logo"><a href="/">WEB Feedback</a></lma>
-				{% if !user %}
-					<!-- <cma class="auth-btn"><a href="/Login">Login</a></cma> -->
-					 <cma  class="auth-btn" ng-click="login();"><a href="">Login</a></cma> 
-					<!-- <cma  class="auth-btn"><a href="/Sign">Sign Up</a></cma> -->
-					<cma class="auth-btn" ng-click="sign();"><a >Sign Up</a></cma>
-				{% endif %}
-				
-				{% if user %}
-					<div>
-						<button ng-click="createReq()" >Create Request</button>
+
+	{% block topbar %}
+	<div ng-controller="main" class="topbar">
+		<div class="tb-logobox"><a href="/">WAW LOGO</a></div>
+		{% if !user %}
+			<span class="tb-login-links">
+				<span  ng-click="login();">login</span>
+				<span class="ml05 mr05">/</span>
+				<span ng-click="sign();">Sign Up</span>
+			</span>
+		{% endif %}
+		<div class="tb-btn" ng-click="createReq();">Request feedack</div>
+		{% if user %}
+			<div class="d-flex top-nav-menu">
+
+				<div ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
+					<div class="top_profile__name"><span>{{{user.name}}}</span></div>
+					<div class="top_profile__avatar">
+						<img src="{{{user.avatarUrl}}}" alt="User Face">
 					</div>
-					<cma class="d-flex top-nav-menu">
-						<box ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
-							<cma class="top_profile__name"><span>{{{user.name}}}</span></cma>
-							<cma class="top_profile__avatar">
-								<img src="{{{user.avatarUrl}}}" alt="User Face">
-							</cma>
-							<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
-						</box>
-						
-						<box ng-class="{'active' : btn}" class="top_profile_menu">
-							<row class="profile__edit"><a href="/MyProfile">My Profile</a></row>
-							<row class="profile__logout"><a href="/api/user/logout">Log Out</a></row>
-						</box>
+					<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
+				</div>
+				
+				<div ng-class="{'active' : btn}" class="top_profile_menu">
+					{% if user&&user.is.admin %}
+						<div><a href="/Admin">Admin</a></div>
+					{% endif %}
+					<div class="profile__edit"><a href="/MyProfile">My Profile</a></div>
+					<div class="profile__logout"><a href="/api/user/logout">Log Out</a></div>
+				</div>
 
-					</cma>
-				{% endif %}
-			</box>
-			{% endblock %}
-		</row>
-		
-
-		<row class="row">
-			{% block body %}{% endblock %}
-		</row>
-	</box>
+			</div>
+		{% endif %}
+	</div>
+	{% endblock %}
+	<div class="body-part">
+		{% block body %}{% endblock %}
+	</div>
 	<!-- Script -->
 	{% block script %}
 		<script src="/gen/public-min.js"></script>
