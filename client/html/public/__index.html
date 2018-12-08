@@ -35,7 +35,7 @@
 			</span>
 		{% endif %}
 		<div class="tb-btn" ng-click="createReq();">Request feedack</div>
-		
+
 		{% if user %}
 			<div class="d-flex top-nav-menu">
 
@@ -81,7 +81,8 @@
 	            $scope.request = function(request) {
 	                modal.open({
 	                    templateUrl: '/html/public/Request.html',
-	                    request: request
+	                    request: request,
+	                    full:true
 	                });
 	            }
 	            $scope.createReq = function() {
