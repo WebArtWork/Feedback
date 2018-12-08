@@ -32,6 +32,7 @@
 .tb-login-links {
 	text-transform: uppercase;
 	.tb-link {
+		cursor: pointer;
 		&:hover {
 			color: red;
 		}
