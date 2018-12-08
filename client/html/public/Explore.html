@@ -20,9 +20,11 @@ The term originally referred to messages sent using the Short Message Service (S
 		<div ng-if="u._id" >
 			all requests
 			<div ng-repeat="r in req.requests">
-				{{r._id}}
+				<div ng-controller="main" ng-click="request();">{{r._id}}</div>
+				
 			</div>
 		</div>
-		<button ng-click="req.create()" >Create</button>
+		
 	</box>
-{% endblock %} 
+
+{% endblock %}
