@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% block header %}
-		<title>WAW Framework</title>
+		<title>Web Feedback</title>
 		<meta name="description" content="Initial waw client under angular 1.x and scss.">
 		<meta name="keywords" content="waw, waw framework">
 		<meta name="author" content="Honchar Denys">
@@ -13,14 +13,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-11"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78236546-13"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-
-	function gtag() { dataLayer.push(arguments); }
-	gtag('js', new Date());
-
-	gtag('config', 'UA-78236546-11');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-78236546-13');
 	</script>
 
 </head>
@@ -30,9 +28,9 @@
 		<div class="tb-logobox"><a href="/">WAW LOGO</a></div>
 		{% if !user %}
 			<span class="tb-login-links">
-				<a href="/Login">login</a>
+				<span ng-controller="main" ng-click="login();">login</span>
 				<span class="ml05 mr05">/</span>
-				<a href="/Sign">Sign Up</a>
+				<span ng-controller="main" ng-click="sign();">Sign Up</span>
 			</span>
 		{% endif %}
 		<div class="tb-btn">Request feedack</div>
@@ -67,6 +65,18 @@
 		<script src="/gen/public-min.js"></script>
 		<script>
 			var app = angular.module('ngapp',['wcom']);
+			app.controller('main', function($scope, $http, modal, mongo){
+				$scope.login = function() {
+	                modal.open({
+	                    templateUrl: '/html/public/Login.html'
+	                });
+	            }
+				$scope.sign = function() {
+	                modal.open({
+	                    templateUrl: '/html/public/Sign.html'
+	                });
+	            }
+			});
 		</script>
 		<script src="/js/wcom/wcom.js"></script>
 		<script src="/js/crud.js"></script>
