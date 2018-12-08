@@ -1,5 +1,7 @@
-var ctrl = function($scope, User){
+var ctrl = function($scope, User, Request){
 	var u = $scope.u = User;
+	var req = $scope.req = Request;
+
 }
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	var root = '/';

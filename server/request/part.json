@@ -13,10 +13,6 @@
 		},{
 			"keys": ["moderators"],
 			"name": "author"
-		}],
-		"unique_field": [{
-			"key": "url",
-			"name": ""
-		}],
+		}]
 	}
 }
