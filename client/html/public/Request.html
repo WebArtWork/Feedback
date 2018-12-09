@@ -7,7 +7,7 @@
 
 <!-- feedback form -->
 <div ng-if="view" >
-	<h4 class="ta-l">Your feedback:</h4>
+	<h4 class="ta-l" ng-if="u._id">Your feedback:</h4>
 	<div class="feedback-form" ng-if="!$root.hidefeddform&&u._id">
 		<div class="feedback-form_col">
 			<h4 class="c-p">User interface</h4>
