@@ -6,11 +6,13 @@
 {% endif %}
 <div class="body-part_top" ng-controller="Users">
 	<div class="requests-filters">
-		<label class="mark" title="Show requests created by me only">
-			<input type="checkbox" ng-model="my">
-			<span class="mark_sign"><span></span></span>
-			<span class="mark_text">Show only my requests</span>
-		</label>
+		<div>
+			<label class="mark" title="Show requests created by me only" ng-if="u._id">
+				<input type="checkbox" ng-model="my">
+				<span class="mark_sign"><span></span></span>
+				<span class="mark_text">Show only my requests</span>
+			</label>
+		</div>
 		<select class="input" ng-model="sorting">
 			<option value="Newones">New ones</option>
 			<option value="Oldones">Old ones</option>

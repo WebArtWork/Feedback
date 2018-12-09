@@ -7,8 +7,8 @@
 
 <!-- feedback form -->
 <div ng-if="view" >
-	<h4 class="ta-l">Your feedback:</h4>
-	<div class="feedback-form" ng-if="!$root.hidefeddform">
+	<h4 class="ta-l" ng-if="u._id">Your feedback:</h4>
+	<div class="feedback-form" ng-if="!$root.hidefeddform&&u._id">
 		<div class="feedback-form_col">
 			<h4 class="c-p">User interface</h4>
 			<fieldset class="rating">
@@ -23,7 +23,7 @@
 			    <input type="radio" id="star1" name="setUIrating" ng-model="feedback.ui" ng-value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 			    <input type="radio" id="starhalf" name="setUIrating" ng-model="feedback.ui" ng-value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 			</fieldset>
-			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uicomment"></textarea>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uicomment" placeholder="What are you think about design, style and visual impressions of the site? Do you like it? Please write about it."></textarea>
 		</div>
 		<div class="feedback-form_col">
 			<h4 class="c-green">User experience</h4>
@@ -39,7 +39,7 @@
 			    <input type="radio" id="star12" name="setUXrating" ng-model="feedback.ux" ng-value="1" /><label class = "full" for="star12" title="Sucks big time - 1 star"></label>
 			    <input type="radio" id="starhalf2" name="setUXrating" ng-model="feedback.ux" ng-value="0.5" /><label class="half" for="starhalf2" title="Sucks big time - 0.5 stars"></label>
 			</fieldset>
-			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uxcomment"></textarea>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uxcomment" placeholder="How comfortable is using of site for You? Is everything clear and simple? What do You think?"></textarea>
 		</div>
 
 		<div class="feedback-form_col">
@@ -56,7 +56,7 @@
 			    <input type="radio" id="star13" name="setSpeedrating" ng-model="feedback.speed" ng-value="1" /><label class = "full" for="star13" title="Sucks big time - 1 star"></label>
 			    <input type="radio" id="starhalf3" name="setSpeedrating" ng-model="feedback.speed" ng-value="0.5" /><label class="half" for="starhalf3" title="Sucks big time - 0.5 stars"></label>
 			</fieldset>
-			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.speedcomment"></textarea>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.speedcomment" placeholder="You're opinion about the quickness of loading, surfing on the site. Are everything work fast and smoothly? Share your feelings."></textarea>
 		</div>
 
 		<div class="feedback-form_col">
@@ -73,7 +73,7 @@
 			    <input type="radio" id="star14" name="setBugsrating" ng-model="feedback.bugs" ng-value="1" /><label class = "full" for="star14" title="Sucks big time - 1 star"></label>
 			    <input type="radio" id="starhalf4" name="setBugsrating" ng-model="feedback.bugs" ng-value="0.5" /><label class="half" for="starhalf4" title="Sucks big time - 0.5 stars"></label>
 			</fieldset>
-			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment"></textarea>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment" placeholder="Have you noticed some bugs and  problems on the site?"></textarea>
 			<div class="mt ta-c pr">
 				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id); $root.hidefeddform=true" ng-disabled="!feedback.ui||!feedback.ux||!feedback.speed||!feedback.bugs" class="btn fb-btn">Send your feedback</button>
 			</div>
