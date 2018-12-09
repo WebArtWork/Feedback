@@ -78,6 +78,13 @@
     &:hover {
         color: #e67e22;
     }
+    @include bp-max(sm) {
+        position: fixed;
+        z-index: 4444;
+        font-size: 27px;
+        right: 7px;
+        background: #fff;
+    }
 }
 
 
@@ -106,5 +113,8 @@
         max-width: 100%;
         margin-top: 0;
         min-height: 100vh;
+    }
+    @include bp-max(sm) {
+        padding-left: 0;
     }
 }

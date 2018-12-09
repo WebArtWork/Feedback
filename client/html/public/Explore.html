@@ -10,14 +10,16 @@
 			<div class="request-landing_data">
 				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
 				<div>{{r.created|date:'dd MMM yyyy'}}</div>
+				
 			</div>
 			<h1 title="Open site for review"><div>{{r.link}}</div></h1>
 			<p>{{r.description}}</p>
 			<div class="request-land-ratings">
-				<span class="c-p mr"><span class="mr05">UI</span><span>3</span></span>
-				<span class="c-green mr"><span class="mr05">UX</span><span>1.4</span></span>
-				<span class="c-orange mr"><span class="mr05">Performance</span><span>3.8</span></span>
-				<span class="c-d mr"><span class="mr05">Bugs</span><span>4</span></span>
+				<span class="c-p mr"><span class="mr05">UI</span><span>{{r.averUi}}</span></span>
+				<span class="c-green mr"><span class="mr05">UX</span><span>{{r.averUx}}</span></span>
+				<span class="c-orange mr"><span class="mr05">Performance</span><span>{{r.averSpeed}}</span></span>
+				<span class="c-d mr"><span class="mr05">Bugs</span><span>{{r.averBugs}}</span></span>
+				<span class="c-z mr"><span class="mr05">TOTAL</span><span>{{(r.averBugs+r.averUi+r.averUx+r.averSpeed)/4}}</span></span>
 			</div>
 		</div>
 	</div>

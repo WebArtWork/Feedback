@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% block header %}
 		<title>Web Feedback</title>
-		<meta name="description" content="Initial waw client under angular 1.x and scss.">
-		<meta name="keywords" content="waw, waw framework">
-		<meta name="author" content="Honchar Denys">
+		<meta name="description" content="Web feedback - it's your assistant and defender in the web space.You can leave a comment and rate or place to review the website.">
+		<meta name="keywords" content="webfeedback, web feedback, sitefeedback, site feedback ,site reviewer, webreview, webrating, web reviewer, how to review the web site, web site rating, how to check a website, how to rate a website, leave the feedback about website, leave  feedback about website , website testing, rating list of website,s high rated websites, most rated websites, less rated websites, website with best ui, website with best ux, website with best performance, website with more bugs and problems, website with less bugs and problems">
+		<meta name="author" content="Web Art Work Agency">
 	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="/gen/public.css">
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
@@ -26,23 +26,30 @@
 
 	{% block topbar %}
 	<div  class="topbar">
-		<div class="tb-logobox"><a href="/">WAW LOGO</a></div>
+		<div class="tb-logobox"><a href="/"><img src="/img/logo-white-small.png" alt=""></a></div>
 		{% if !user %}
 			<span class="tb-login-links">
-				<span  ng-click="login();">login</span>
+				<span class="tb-link" title="Show login form" ng-click="login();">login</span>
 				<span class="ml05 mr05">/</span>
-				<span ng-click="sign();">Sign Up</span>
+				<span class="tb-link" title="Show sign up form" ng-click="sign();">Sign Up</span>
 			</span>
 		{% endif %}
+		<div class="tb-right">
 		{% if user %}
-			<span class="tb-login-links">
-				<a href="/api/user/logout">Log Out</a>
-			</span>
+			<div class="tb-btn" title="Create new request" ng-click="createReq();">Request review</div>
+			<a class="tb-btn _log" title="Log Out" href="/api/user/logout"><i class="icon icon-logout"></i></a>
 		{% endif %}
-		<div class="tb-btn" ng-click="createReq();">Request review</div>
+		{% if !user %}
+			<div class="tb-fake"></div>
+			<div class="tb-btn" title="Create new request" ng-click="login();">Request review</div>
+		{% endif %}
+		</div>
 
 	</div>
 	{% endblock %}
+	{% if !user %}
+		<div class="welcome-section">Welcome section</div>
+	{% endif %}
 	<div class="body-part">
 		{% block body %}{% endblock %}
 	</div>

@@ -96,8 +96,51 @@ services.Request = function($http, $timeout, mongo, file){
 	// waw crud
 		let self = this;
 
-		self.requests = mongo.get('request');
-
+		self.requests = mongo.get('request',{
+			replace: {
+				averUi: function(val, cb, doc){
+					var sum = 0;
+					var count = 0;
+					for (var i = 0; i < doc.feedbacks.length; i++) {
+						var sum = 0;
+						sum += doc.feedbacks[i].ui;
+						count++;
+					}
+					cb((sum/count)||0);
+				},
+				averUx: function(val, cb, doc){
+					var sum = 0;
+					var count = 0;
+					for (var i = 0; i < doc.feedbacks.length; i++) {
+						var sum = 0;
+						sum += doc.feedbacks[i].ux;
+						count++;
+					}
+					cb((sum/count)||0);
+				},
+				averSpeed: function(val, cb, doc){
+					var sum = 0;
+					var count = 0;
+					for (var i = 0; i < doc.feedbacks.length; i++) {
+						var sum = 0;
+						sum += doc.feedbacks[i].speed;
+						count++;
+					}
+					cb((sum/count)||0);
+				},
+				averBugs: function(val, cb, doc){
+					var sum = 0;
+					var count = 0;
+					for (var i = 0; i < doc.feedbacks.length; i++) {
+						var sum = 0;
+						sum += doc.feedbacks[i].bugs;
+						count++;
+					}
+					cb((sum/count)||0);
+				}
+			}
+		});
+		console.log(self.requests);
 		this.create = function(request){
 			
 			if(!request){
@@ -134,6 +177,9 @@ services.Request = function($http, $timeout, mongo, file){
 				}
 				mongo.updateAll('request',self.requests[i]);
 			}
+		}
+		this.update = function(request){
+			mongo.delete('request',request);
 		}
 	// End of service
 }
