@@ -70,6 +70,9 @@
 				                    templateUrl: '/html/public/Request.html',
 				                    request: Request.requests[i],
 				                    full:true,
+				                    clear: function(){
+				                    	location.hash ="";
+				                    },
 				                    view:view
 				                });
 							}
@@ -107,6 +110,9 @@
 	                    templateUrl: '/html/public/Request.html',
 	                    request: request,
 	                    full:true,
+	                    clear: function(){
+	                    	location.hash ="";
+	                    },
 	                    view:view
 	                });
 	                location.hash=request._id;
