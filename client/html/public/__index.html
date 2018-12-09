@@ -22,11 +22,11 @@
 	</script>
 
 </head>
-<body ng-controller="main" style="opacity: 0" ng-style="{opacity: 1}">
+<body ng-controller="main" ng-style="{opacity: 1}">
 
 	{% block topbar %}
 	<header  class="topbar">
-		<div class="tb-logobox"><a href="/"><img src="/img/logo-white-small.png" alt=""></a></div>
+		<div class="tb-logobox"><a href="/"><img src="/img/logo-white-small.svg" alt="logo"></a></div>
 		{% if !user %}
 			<span class="tb-login-links">
 				<span class="tb-link" title="Show login form" ng-click="login();">login</span>
