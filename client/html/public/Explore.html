@@ -6,21 +6,25 @@
 	<div class="welcome-section">Welcome section</div>
 	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
 	<div class="requests-on-landing">
-		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my">
-			<div class="request-landing_data">
-				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
-				<div>{{r.created|date:'dd MMM yyyy'}}</div>
-				
+		<div class="request-landing"  ng-repeat="r in req.requests|sort:u._id:my">
+			<div ng-click="req.delete(r);">X</div>
+			<div ng-click="request(r)">
+				<div class="request-landing_data">
+					<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
+					<div>{{r.created|date:'dd MMM yyyy'}}</div>
+
+				</div>
+				<h1 title="Open site for review"><div>{{r.link}}</div></h1>
+				<p>{{r.description}}</p>
+				<div class="request-land-ratings">
+					<span class="c-p mr"><span class="mr05">UI</span><span>{{r.averUi}}</span></span>
+					<span class="c-green mr"><span class="mr05">UX</span><span>{{r.averUx}}</span></span>
+					<span class="c-orange mr"><span class="mr05">Performance</span><span>{{r.averSpeed}}</span></span>
+					<span class="c-d mr"><span class="mr05">Bugs</span><span>{{r.averBugs}}</span></span>
+					<span class="c-z mr"><span class="mr05">TOTAL</span><span>{{(r.averBugs+r.averUi+r.averUx+r.averSpeed)/4}}</span></span>
+				</div>
 			</div>
-			<h1 title="Open site for review"><div>{{r.link}}</div></h1>
-			<p>{{r.description}}</p>
-			<div class="request-land-ratings">
-				<span class="c-p mr"><span class="mr05">UI</span><span>{{r.averUi}}</span></span>
-				<span class="c-green mr"><span class="mr05">UX</span><span>{{r.averUx}}</span></span>
-				<span class="c-orange mr"><span class="mr05">Performance</span><span>{{r.averSpeed}}</span></span>
-				<span class="c-d mr"><span class="mr05">Bugs</span><span>{{r.averBugs}}</span></span>
-				<span class="c-z mr"><span class="mr05">TOTAL</span><span>{{(r.averBugs+r.averUi+r.averUx+r.averSpeed)/4}}</span></span>
-			</div>
+			
 		</div>
 	</div>
 </div>

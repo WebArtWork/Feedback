@@ -178,8 +178,10 @@ services.Request = function($http, $timeout, mongo, file){
 				mongo.updateAll('request',self.requests[i]);
 			}
 		}
-		this.update = function(request){
-			mongo.delete('request',request);
+		this.delete = function(request){
+			mongo.delete('request', {
+				_id: request._id
+			});
 		}
 	// End of service
 }
