@@ -139,9 +139,11 @@ services.Request = function($http, $timeout, mongo, file){
 					cb((sum/count)||0);
 				},
 				workLink: function(val, cb, doc){
-					if(doc.link.slice(0,3)!='http'){
-						cb('http://'+doc.link);
-					}else cb(doc.link);
+					setTimeout(function(){ 
+						if(doc.link.slice(0,3)!='http'){
+							cb('http://'+doc.link);
+						}else cb(doc.link);
+					},500);
 				}
 			}
 		});
