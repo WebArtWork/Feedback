@@ -104,7 +104,8 @@
 	            $scope.request = function(request) {
 	            	var view = true;
 	            	var workLink;
-	            	if(request.link.slice(0,3)!='http'){
+	            	if(request.link.slice(0,4)!='http'){
+
 						workLink='http://'+request.link;
 					}else workLink=request.link;
 	            	if(User._id==request.author){
