@@ -75,7 +75,7 @@
 			</fieldset>
 			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment"></textarea>
 			<div class="mt ta-c pr">
-				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id); view=false;" class="btn fb-btn">Send your feedback</button>
+				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id);" class="btn fb-btn">Send your feedback</button>
 			</div>
 		</div>
 	</div>
@@ -89,7 +89,7 @@
 	<div class="feedback" ng-repeat="f in request.feedbacks">
 		<div class="feedback_data">
 			<div ng-controller="Users">Feedback by: <b>{{u._users[f.author].nickname}}</b></div>
-			<div>12 May 2018</div>
+			<div>{{f.created|date:'dd MMM yyyy hh:mm'}}</div>
 		</div>
 		<div class="feedback_rate">
 			<span class="c-p mr">User interface</span>

@@ -14,7 +14,8 @@ var Schema = mongoose.Schema({
 		speed: Number,
 		speedcomment: String,
 		bugs: Number,
-		bugscomment: String 
+		bugscomment: String,
+		created: Date
 	}],
 	url: {type: String, unique: true, sparse: true, trim: true}
 });

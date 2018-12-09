@@ -69,8 +69,9 @@
 	            }
 	            $scope.request = function(request) {
 	            	var view = true;
-	            	console.log(User);
-	            	console.log(Request);
+	            	if(User._id==request.author){
+	            		view = false;
+	            	}
 	            	for (var i = 0; i < request.feedbacks.length; i++) {
 	            		if(request.feedbacks[i].author==User._id){
 	            			view=false;

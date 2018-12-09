@@ -119,9 +119,6 @@ services.Request = function($http, $timeout, mongo, file){
 		this.updateFeedback = function(request, feedback, userId){
 			for (var i = self.requests.length - 1; i >= 0; i--) {
 				if(self.requests[i]._id==request._id){
-					console.log(request);
-					console.log(feedback);
-					console.log(userId);
 					self.requests[i].feedbacks.push({
 						author: userId,
 						ui: feedback.ui,
