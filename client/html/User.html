@@ -28,14 +28,14 @@
 			<box class="topbar-container">
 				<lma class="topbar-logo"><a href="/" target="_self">WEB Feedback</a></lma>
 				
-				<cma ng-if="u.is.admin" style="width: 100px;"><a target="_self" href="/Admin">Admin</a></cma>
+				<cma ng-if="u.is.admin"><a target="_self" href="/Admin">Admin</a></cma>
 
-				<cma ng-if="u._id" style="width: 200px;">
+				<cma ng-if="u._id">
 					<box>
-						<cma style="width: 50px;">
+						<cma>
 							<img ng-src="{{u.avatarUrl}}" alt="User Face">
 						</cma>
-						<cma style="width: 150px;">{{u.name}}</cma>
+						<cma>{{u.name}}</cma>
 					</box>
 					<box>
 						<row><a ui-sref="MyProfile">MyProfile</a></row>
