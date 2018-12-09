@@ -73,8 +73,8 @@ body {
 			}
 		}
 		@include bp-max(sm) {
+			padding: 0 8px 4px;
 			font-size: 14px;
-			padding: 2px;
 		}
 	}
 }
