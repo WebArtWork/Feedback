@@ -57,6 +57,21 @@ body {
 			padding: 24px 12px;
 		}
 	}
+	&_bot {
+		text-align: center;
+		font-size: 12px;
+		text-transform: uppercase;
+		padding: 0 8px 4px;
+		a {
+			b {
+				font-weight: 600;
+			}
+			&:hover {
+				color: #ECF0F1;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 .welcome-section {
