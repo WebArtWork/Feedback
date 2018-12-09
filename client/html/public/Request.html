@@ -1,12 +1,12 @@
 <!-- request description -->
 <h4 class="ta-l _mb0">Site:</h4>
 <div class="request-info">
-	<h1 title="Open site for review"><a href="{{request.link}}">{{request.link}}</a></h1>
+	<h1 title="Open site for review"><a href="{{request.workLink}}">{{request.link}}</a></h1>
 	<p>{{request.description}}</p>
 </div>
 
 <!-- feedback form -->
-<div ng-if="view" >
+<div ng-controller="Users" ng-if="view" >
 	<h4 class="ta-l" ng-if="u._id">Your feedback:</h4>
 	<div class="feedback-form" ng-if="!$root.hidefeddform&&u._id">
 		<div class="feedback-form_col">
@@ -75,7 +75,7 @@
 			</fieldset>
 			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment" placeholder="Have you noticed some bugs and  problems on the site?"></textarea>
 			<div class="mt ta-c pr">
-				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id); $root.hidefeddform=true" ng-disabled="!feedback.ui||!feedback.ux||!feedback.speed||!feedback.bugs" class="btn fb-btn">Send your feedback</button>
+				<button  ng-click="req.updateFeedback(request, feedback, u._id); $root.hidefeddform=true" ng-disabled="!feedback.ui||!feedback.ux||!feedback.speed||!feedback.bugs" class="btn fb-btn">Send your feedback</button>
 			</div>
 		</div>
 	</div>
