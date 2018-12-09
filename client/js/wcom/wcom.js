@@ -6,7 +6,7 @@ angular.module("wmodal_popup.html", []).run(["$templateCache", function($templat
 	$templateCache.put("wmodal_popup.html", "<span ng-click-outside=\"close()\" ng-transclude ng-click=\"open($event)\" elsize=\"size\"></span>");
 }]);
 angular.module("wmodal_modal.html", []).run(["$templateCache", function($templateCache) {
-	$templateCache.put("wmodal_modal.html", "<div class='modal' ng-class=\"{full: full, cover: cover}\"><div class='modal_fade' ng-click='close();' title='Close'></div><div class='modal_content viewer'><i class='icon icon-close close-m' ng-click='close();' title='Close'></i><h2 ng-if=\"header\">{{header}}</h2><p ng-if=\"content\">{{content}}</p><ng-transclude></ng-transclude></div></div>");
+	$templateCache.put("wmodal_modal.html", "<div class='modal' ng-class=\"{full: full, cover: cover, clear:clear}\"><div class='modal_fade' ng-click='close(); clear();' title='Close'></div><div class='modal_content viewer'><i class='icon icon-close close-m' ng-click='close(); clear();' title='Close'></i><h2 ng-if=\"header\">{{header}}</h2><p ng-if=\"content\">{{content}}</p><ng-transclude></ng-transclude></div></div>");
 }]);
 angular.module("wcom_wtags.html", []).run(["$templateCache", function($templateCache) {
 	$templateCache.put("wcom_wtags.html", "<label class='wtags'><span class='wtag' ng-repeat='tag in tags'>#{{tag}} <i class='icon icon-close' ng-click='tags.splice($index, 1); update_tags();'></i></span><input type='text' placeholder='new tag' ng-model='new_tag' ng-keyup='enter($event)'></label>");

@@ -34,10 +34,12 @@ services.User = function($http, $timeout, mongo, file){
 				following: function(val, cb, doc){
 					cb(self.following(doc._id));
 				}
+			}, function(arr, obj) {
+				self._users = obj;
 			});
 		});
 	// Search
-		this.sMale = this.sFemale = true;
+	/*	this.sMale = this.sFemale = true;
 		this.search = function(){
 			if(self.sMinAge<1) self.sMinAge = 1;
 			if(self.sMaxAge>100) self.sMaxAge = 100;
@@ -56,7 +58,7 @@ services.User = function($http, $timeout, mongo, file){
 		}
 		this.if_false_make_true = function(prefix){
 			if(!self[prefix]) self[prefix] = true;
-		}
+		}*/
 	
 	// Custom Routes
 		this.updateAfterWhile = function(){
@@ -93,13 +95,62 @@ services.User = function($http, $timeout, mongo, file){
 services.Request = function($http, $timeout, mongo, file){
 	// waw crud
 		let self = this;
+
 		self.requests = mongo.get('request');
 
-		this.create = function(){
-			console.log('created');
-			mongo.create('request', function(created){
-				console.log(created);
+		this.create = function(request){
+			
+			if(!request){
+				return alert('You have to fill link.');
+			}
+			if(!request.link){
+				return alert('You have to fill link.');
+			}
+			mongo.create('request',{
+				name: request.name,
+				description: request.description,
+				link: request.link,
+				_id: request._id
 			});
 		}
+		this.update = function(request){
+			mongo.updateAll('request',request);
+		}
+		this.updateFeedback = function(request, feedback, userId){
+			for (var i = self.requests.length - 1; i >= 0; i--) {
+				if(self.requests[i]._id==request._id){
+					self.requests[i].feedbacks.push({
+						author: userId,
+						ui: feedback.ui,
+						uicomment: feedback.uicomment,
+						ux: feedback.ux,
+						uxcomment: feedback.uxcomment,
+						speed: feedback.speed,
+						speedcomment: feedback.speedcomment,
+						bugs: feedback.bugs,
+						bugscomment: feedback.bugscomment,
+						created: new Date()
+					})
+				}
+				mongo.updateAll('request',self.requests[i]);
+			}
+		}
 	// End of service
+}
+filters.sort = function() {
+	return function(requests,userId , my) {
+
+		var newreq = []
+		for (var i = 0; i < requests.length; i++) {
+			newreq.unshift(requests[i]);
+		}
+		if(my){
+			for (var i = newreq.length-1; i >= 0; i--) {
+				if(newreq[i].author!=userId){
+					newreq.splice(i,1);
+				}
+			}
+		}
+		return newreq;
+	}
 }

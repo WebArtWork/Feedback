@@ -1,0 +1,133 @@
+<!-- request description -->
+<h4 class="ta-l _mb0">Site:</h4>
+<div class="request-info">
+	<h1 title="Open site for review"><a href="{{request.link}}">{{request.link}}</a></h1>
+	<p>{{request.description}}</p>
+</div>
+
+<!-- feedback form -->
+<div ng-if="view" >
+	<h4 class="ta-l">Your feedback:</h4>
+	<div class="feedback-form">
+		<div class="feedback-form_col">
+			<h4 class="c-p">User interface</h4>
+			<fieldset class="rating">
+			    <input type="radio" id="star5" name="setUIrating" ng-model="feedback.ui" ng-value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+			    <input type="radio" id="star4half" name="setUIrating" ng-model="feedback.ui" ng-value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+			    <input type="radio" id="star4" name="rating" ng-model="feedback.ui" ng-value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+			    <input type="radio" id="star3half" name="setUIrating" ng-model="feedback.ui" ng-value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+			    <input type="radio" id="star3" name="setUIrating" ng-model="feedback.ui" ng-value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+			    <input type="radio" id="star2half" name="setUIrating" ng-model="feedback.ui" ng-value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+			    <input type="radio" id="star2" name="setUIrating" ng-model="feedback.ui" ng-value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+			    <input type="radio" id="star1half" name="setUIrating" ng-model="feedback.ui" ng-value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+			    <input type="radio" id="star1" name="setUIrating" ng-model="feedback.ui" ng-value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+			    <input type="radio" id="starhalf" name="setUIrating" ng-model="feedback.ui" ng-value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+			</fieldset>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uicomment"></textarea>
+		</div>
+		<div class="feedback-form_col">
+			<h4 class="c-green">User experience</h4>
+			<fieldset class="rating">
+			    <input type="radio" id="star52" name="setUXrating" ng-model="feedback.ux" ng-value="5" /><label class = "full" for="star52" title="Awesome - 5 stars"></label>
+			    <input type="radio" id="star4half2" name="setUXrating" ng-model="feedback.ux" ng-value="4.5" /><label class="half" for="star4half2" title="Pretty good - 4.5 stars"></label>
+			    <input type="radio" id="star42" name="setUXrating" ng-model="feedback.ux" ng-value="4" /><label class = "full" for="star42" title="Pretty good - 4 stars"></label>
+			    <input type="radio" id="star3half2" name="setUXrating" ng-model="feedback.ux" ng-value="3.5" /><label class="half" for="star3half2" title="Meh - 3.5 stars"></label>
+			    <input type="radio" id="star32" name="setUXrating" ng-model="feedback.ux" ng-value="3" /><label class = "full" for="star32" title="Meh - 3 stars"></label>
+			    <input type="radio" id="star2half2" name="setUXrating" ng-model="feedback.ux" ng-value="2.5" /><label class="half" for="star2half2" title="Kinda bad - 2.5 stars"></label>
+			    <input type="radio" id="star22" name="setUXrating" ng-model="feedback.ux" ng-value="2" /><label class = "full" for="star22" title="Kinda bad - 2 stars"></label>
+			    <input type="radio" id="star1half2" name="setUXrating" ng-model="feedback.ux" ng-value="1.5" /><label class="half" for="star1half2" title="Meh - 1.5 stars"></label>
+			    <input type="radio" id="star12" name="setUXrating" ng-model="feedback.ux" ng-value="1" /><label class = "full" for="star12" title="Sucks big time - 1 star"></label>
+			    <input type="radio" id="starhalf2" name="setUXrating" ng-model="feedback.ux" ng-value="0.5" /><label class="half" for="starhalf2" title="Sucks big time - 0.5 stars"></label>
+			</fieldset>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.uxcomment"></textarea>
+		</div>
+
+		<div class="feedback-form_col">
+			<h4 class="c-orange">Performance</h4>
+			<fieldset class="rating">
+			    <input type="radio" id="star53" name="setSpeedrating" ng-model="feedback.speed" ng-value="5" /><label class = "full" for="star53" title="Awesome - 5 stars"></label>
+			    <input type="radio" id="star4half3" name="setSpeedrating" ng-model="feedback.speed" ng-value="4.5" /><label class="half" for="star4half3" title="Pretty good - 4.5 stars"></label>
+			    <input type="radio" id="star43" name="setSpeedrating" ng-model="feedback.speed" ng-value="4" /><label class = "full" for="star43" title="Pretty good - 4 stars"></label>
+			    <input type="radio" id="star3half3" name="setSpeedrating" ng-model="feedback.speed" ng-value="3.5" /><label class="half" for="star3half3" title="Meh - 3.5 stars"></label>
+			    <input type="radio" id="star33" name="setSpeedrating" ng-model="feedback.speed" ng-value="3" /><label class = "full" for="star33" title="Meh - 3 stars"></label>
+			    <input type="radio" id="star2half3" name="setSpeedrating" ng-model="feedback.speed" ng-value="2.5" /><label class="half" for="star2half3" title="Kinda bad - 2.5 stars"></label>
+			    <input type="radio" id="star23" name="setSpeedrating" ng-model="feedback.speed" ng-value="2" /><label class = "full" for="star23" title="Kinda bad - 2 stars"></label>
+			    <input type="radio" id="star1half3" name="setSpeedrating" ng-model="feedback.speed" ng-value="1.5" /><label class="half" for="star1half3" title="Meh - 1.5 stars"></label>
+			    <input type="radio" id="star13" name="setSpeedrating" ng-model="feedback.speed" ng-value="1" /><label class = "full" for="star13" title="Sucks big time - 1 star"></label>
+			    <input type="radio" id="starhalf3" name="setSpeedrating" ng-model="feedback.speed" ng-value="0.5" /><label class="half" for="starhalf3" title="Sucks big time - 0.5 stars"></label>
+			</fieldset>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.speedcomment"></textarea>
+		</div>
+
+		<div class="feedback-form_col">
+			<h4 class="c-d">Bugs and problems</h4>
+			<fieldset class="rating">
+			    <input type="radio" id="star54" name="setBugsrating" ng-model="feedback.bugs" ng-value="5" /><label class = "full" for="star54" title="Awesome - 5 stars"></label>
+			    <input type="radio" id="star4half4" name="setBugsrating" ng-model="feedback.bugs" ng-value="4.5" /><label class="half" for="star4half4" title="Pretty good - 4.5 stars"></label>
+			    <input type="radio" id="star44" name="setBugsrating" ng-model="feedback.bugs" ng-value="4" /><label class = "full" for="star44" title="Pretty good - 4 stars"></label>
+			    <input type="radio" id="star3half4" name="setBugsrating" ng-model="feedback.bugs" ng-value="3.5" /><label class="half" for="star3half4" title="Meh - 3.5 stars"></label>
+			    <input type="radio" id="star34" name="setBugsrating" ng-model="feedback.bugs" ng-value="3" /><label class = "full" for="star34" title="Meh - 3 stars"></label>
+			    <input type="radio" id="star2half4" name="setBugsrating" ng-model="feedback.bugs" ng-value="2.5" /><label class="half" for="star2half4" title="Kinda bad - 2.5 stars"></label>
+			    <input type="radio" id="star24" name="setBugsrating" ng-model="feedback.bugs" ng-value="2" /><label class = "full" for="star24" title="Kinda bad - 2 stars"></label>
+			    <input type="radio" id="star1half4" name="setBugsrating" ng-model="feedback.bugs" ng-value="1.5" /><label class="half" for="star1half4" title="Meh - 1.5 stars"></label>
+			    <input type="radio" id="star14" name="setBugsrating" ng-model="feedback.bugs" ng-value="1" /><label class = "full" for="star14" title="Sucks big time - 1 star"></label>
+			    <input type="radio" id="starhalf4" name="setBugsrating" ng-model="feedback.bugs" ng-value="0.5" /><label class="half" for="starhalf4" title="Sucks big time - 0.5 stars"></label>
+			</fieldset>
+			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment"></textarea>
+			<div class="mt ta-c pr">
+				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id);" class="btn fb-btn">Send your feedback</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<h4 class="ta-l mt">What other people think:</h4>
+<!-- feedbacks repeat -->
+<div class="feedbacks">
+	<div class="feedback" ng-repeat="f in request.feedbacks">
+		<div class="feedback_data">
+			<div ng-controller="Users">Feedback by: <b>{{u._users[f.author].nickname}}</b></div>
+			<div>{{f.created|date:'dd MMM yyyy hh:mm'}}</div>
+		</div>
+		<div class="feedback_rate">
+			<span class="c-p mr">User interface</span>
+			<div class="star-ratings-css">
+			  <div class="star-ratings-css-top" ng-style="{'width':f.ui/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
+			  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+			</div>
+		</div>
+		<div class="feedback_comment">{{f.uicomment}}</div>
+
+		<div class="feedback_rate">
+			<span class="c-green mr">User experience</span>
+			<div class="star-ratings-css">
+			  <div class="star-ratings-css-top" ng-style="{'width':f.ux/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
+			  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+			</div>
+		</div>
+		<div class="feedback_comment">{{f.uxcomment}}</div>
+
+		<div class="feedback_rate">
+			<span class="c-orange mr">Performance</span>
+			<div class="star-ratings-css">
+			  <div class="star-ratings-css-top" ng-style="{'width':f.speed/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
+			  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+			</div>
+		</div>
+		<div class="feedback_comment">{{f.speedcomment}}</div>
+		<div class="feedback_rate">
+			<span class="c-d mr">Bugs and problems</span>
+			<div class="star-ratings-css">
+			  <div class="star-ratings-css-top" ng-style="{'width':f.bugs/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
+			  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+			</div>
+		</div>
+		<div class="feedback_comment">{{f.bugscomment}}</div>
+	</div>
+</div>

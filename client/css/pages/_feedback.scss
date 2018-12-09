@@ -1,0 +1,50 @@
+.feedback-form {
+	display: flex;
+	background: #ECF0F1;
+	text-align: center;
+	flex-wrap: wrap;
+	padding: 6px 12px;
+	padding-bottom: 18px;
+	border: 1px solid #BDC3C7;
+	&_col {
+		width: 50%;
+		padding: 0 12px;
+		margin-top: 12px;
+		textarea {
+
+		}
+	}
+}
+.fb-btn {
+}
+
+
+.feedback {
+	padding: 12px 0 12px 12px;
+	border-top: 1px solid $primary;
+	text-align: left;
+	border-left: 1px solid $primary;
+	&:nth-child(odd) {
+		border-left: 1px solid #D35400;
+		border-top: 1px solid #D35400;
+	}
+
+	&_data {
+		display: flex;
+		justify-content: space-between;;
+		font-size: 11px;
+		text-transform: uppercase;
+		color: $gray;
+	}
+	&_rate {
+		display: flex;
+		font-size: 14px;
+		text-transform: uppercase;
+		align-items: center;
+		height: 37px;
+    	line-height: 1;
+		span {
+			margin-top: 5px;
+		}
+	}
+}

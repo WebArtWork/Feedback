@@ -3,11 +3,19 @@ var Schema = mongoose.Schema({
 	name: String,
 	description: String,
 	link: String,
+	created: Date,
 	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	estimate: Number,
-	comments: [{
-		author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		text: String
+	feedbacks: [{
+		author: String,
+		ui: Number,
+		uicomment: String,
+		ux: Number,
+		uxcomment: String,
+		speed: Number,
+		speedcomment: String,
+		bugs: Number,
+		bugscomment: String,
+		created: Date
 	}],
 	url: {type: String, unique: true, sparse: true, trim: true}
 });
@@ -16,6 +24,7 @@ Schema.methods.create = function(obj, user, sd) {
 	this.author = user._id;
 	this.name = obj.name;
 	this.link = obj.link;
+	this.created = new Date();
 	this.description = obj.description;
 }
 

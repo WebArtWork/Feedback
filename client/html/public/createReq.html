@@ -1,0 +1,12 @@
+<h3 class="pt pb">Create request for review</h3>
+<div class="login-form">
+	<label class="pb05">
+		<h5>URL</h5>
+		<input class="input" type="text" placeholder="Put link to your site" ng-model="request.link">
+	</label>
+	<label class="pb">
+		<h5>Desciption</h5>
+		<textarea class="input" rows="8" placeholder="Additional infomation for users who will make review of the site" ng-model="request.description"></textarea><br>
+	</label>
+	<button class="btn _w100p mt05" ng-controller="Users" ng-click="req.create(request); close();">Create request</button>
+</div>

@@ -8,11 +8,8 @@
 	},
 	"crud": {
 		"updatesAll": [{
-			"keys": ["name","description","estimate","coments","link"],
+			"keys": ["name","description","feedbacks","link","created"],
 			"name": ""
-		},{
-			"keys": ["moderators"],
-			"name": "author"
 		}]
 	}
 }

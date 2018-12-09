@@ -1,0 +1,40 @@
+.topbar {
+	display: flex;
+	width: 100vw;
+	align-items: center;
+	justify-content: space-between;
+	height: 45px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	background: #333;
+	color: #fff;
+}
+
+.tb-btn {
+	width: 160px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: $primary;
+	height: 45px;
+	text-transform: uppercase;
+	cursor: pointer;
+	&:hover {
+		background: $primary-d;
+	}
+}
+.tb-logobox {
+	width: 160px;
+}
+
+.tb-login-links {
+	text-transform: uppercase;
+	.tb-link {
+		cursor: pointer;
+		&:hover {
+			color: red;
+		}
+	}
+}

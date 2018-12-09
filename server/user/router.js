@@ -13,7 +13,7 @@ module.exports = function(sd) {
 	*	waw crud : Get Configuration
 	*/
 		sd['query_get_user'] = function(){return {}};
-		sd['select_get_user'] = function(){return 'avatarUrl skills gender name birth username'};
+		sd['select_get_user'] = function(){return 'avatarUrl email nickname'};
 		sd['ensure_get_user_admin'] = ensure_admin;
 		sd['query_get_user_admin'] = function(){return {}};
 		sd['select_get_user_admin'] = function(){return '-password'};
@@ -59,18 +59,10 @@ module.exports = function(sd) {
 	*/
 		router.get("/me", sd._ensure, function(req, res) {
 			res.json({
-				followings: req.user.followings,
-				architect: req.user.architect,
-				followers: req.user.followers,
 				avatarUrl: req.user.avatarUrl,
-				skills: req.user.skills,
-				gender: req.user.gender,
-				birth: req.user.birth,
-				name: req.user.name,
-				date: req.user.date,
-				kind: req.user.kind,
-				_id: req.user._id,
-				is: req.user.is
+				nickname: req.user.nickname,
+				email: req.user.email,
+				_id: req.user._id
 			});
 		});
 		router.post("/changePassword", sd._ensure, function(req, res) {

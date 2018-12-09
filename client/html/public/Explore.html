@@ -4,29 +4,22 @@
 <div ng-controller="Users">
 
 	<div class="welcome-section">Welcome section</div>
-	<fieldset class="rating">
-	    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-	</fieldset>
-
-	<div class="star-ratings-css">
-	  <div class="star-ratings-css-top" style="width: 14%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-	  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-	</div>
-	<div ng-if="u._id" >
-		all requests
-		<div ng-repeat="r in req.requests">
-			{{r._id}}
+	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
+	<div class="requests-on-landing">
+		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my">
+			<div class="request-landing_data">
+				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
+				<div>{{r.created|date:'dd MMM yyyy'}}</div>
+			</div>
+			<h1 title="Open site for review"><div>{{r.link}}</div></h1>
+			<p>{{r.description}}</p>
+			<div class="request-land-ratings">
+				<span class="c-p mr"><span class="mr05">UI</span><span>3</span></span>
+				<span class="c-green mr"><span class="mr05">UX</span><span>1.4</span></span>
+				<span class="c-orange mr"><span class="mr05">Performance</span><span>3.8</span></span>
+				<span class="c-d mr"><span class="mr05">Bugs</span><span>4</span></span>
+			</div>
 		</div>
 	</div>
-	<button ng-click="req.create()" >Create</button>
 </div>
-{% endblock %} 
+{% endblock %}

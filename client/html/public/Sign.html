@@ -1,39 +1,29 @@
+<div ng-controller="Auth" class="explore-container">
+	<h3 class="pt pb">Create new account</h3>
+	<form class="login-form" id="SignupFormID" ng-submit="doSignup()">
+		<label class="pb05" ng-class="{error: user.err==3}">
+			<h5>Nickname</h5>
+			<input class="input" type="text" name="nickname" ng-model="user.nickname" placeholder="Visible for other users">
+		</label>
+		<label class="pb05" ng-class="{error: user.err==1}">
+			<h5>E-mail</h5>
+			<input class="input" type="email" name="username" ng-model="user.username" placeholder="email" autocomplete="email">
+		</label>
+		<label class="pb" ng-class="{error: user.err==2}">
+			<h5>Password</h5>
+			<input class="input" type="password" ng-model="user.password" name="password" placeholder="pass phrase" autocomplete="current-password">
+		</label>
 
-	<box ng-controller="Auth" class="explore-container">
-		<cel style="width: 50%" class="user-container">
-			<box>
-				<cma>
-					<img src="" alt="">
-				</cma>
-			</box>
-		</cel>
-		<cel class="aside-container">
-			<box>
-				<cma>
-					<form id="SignupFormID" ng-submit="doSignup()">
-						<h1 class="sign-in-up--title">Sign Up</h1>
-						<label ng-class="{error: user.err==1}">
-							<h2>E-mail</h2>
-							<input class="input" type="email" name="username" ng-model="user.username" placeholder="email" autocomplete="email">
-						</label>
-						<label ng-class="{error: user.err==2}">
-							<h2>Password</h2>
-							<input class="input" type="password" ng-model="user.password" name="password" placeholder="pass phrase" autocomplete="current-password">
-						</label>
-
-						<button type="submit" class="btn">Sign</button>
-					</form>
-				</cma>
-			</box>
-		</cel>
-	</box>
+		<button type="submit" class="btn _w100p mt05">Sign Up</button>
+	</form>
+</div>
 
 
 
-	<script src="/gen/public-min.js"></script>
-	<script>
-		var app = angular.module('ngapp',['wcom', 'vcRecaptcha']);
-	</script>
-	<script src="/js/wcom/wcom.js"></script>
-	<script src="/js/crud.js"></script>
-	<script src="/js/public.js"></script>
+<script src="/gen/public-min.js"></script>
+<script>
+	var app = angular.module('ngapp',['wcom', 'vcRecaptcha']);
+</script>
+<script src="/js/wcom/wcom.js"></script>
+<script src="/js/crud.js"></script>
+<script src="/js/public.js"></script>
