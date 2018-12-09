@@ -34,29 +34,13 @@
 				<span ng-click="sign();">Sign Up</span>
 			</span>
 		{% endif %}
-		<div class="tb-btn" ng-click="createReq();">Request feedack</div>
-
 		{% if user %}
-			<div class="d-flex top-nav-menu">
-
-				<div ng-click="btn = !btn" ng-class="{'nav-active' : btn}" class="d-flex top_profile">
-					<div class="top_profile__name"><span>{{{user}}}</span></div>
-					<div class="top_profile__avatar">
-						<img src="{{{user.avatarUrl}}}" alt="User Face">
-					</div>
-					<div ng-class="{'arrow-active' : btn}" class="top_profile__arrow"><i class="icon icon-arrow"></i></div>
-				</div>
-				
-				<div ng-class="{'active' : btn}" class="top_profile_menu">
-					{% if user&&user.is.admin %}
-						<div><a href="/Admin">Admin</a></div>
-					{% endif %}
-					<div class="profile__edit"><a href="/MyProfile">My Profile</a></div>
-					<div class="profile__logout"><a href="/api/user/logout">Log Out</a></div>
-				</div>
-
-			</div>
+			<span class="tb-login-links">
+				<a href="/api/user/logout">Log Out</a>
+			</span>
 		{% endif %}
+		<div class="tb-btn" ng-click="createReq();">Request review</div>
+
 	</div>
 	{% endblock %}
 	<div class="body-part">
