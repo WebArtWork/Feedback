@@ -12,6 +12,9 @@
 	    cursor: pointer;
 	    display: flex;
 	    text-transform: none;
+		@include bp-max(sm) {
+	    	font-size: 14px;
+		}
 	    a {
 	    	flex-grow: 1;
 	    	color: $primary;
