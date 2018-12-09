@@ -4,9 +4,11 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 
-	&:hover,
-	&:focus {
-		color: inherit;
-		text-decoration: underline;
+}
+.simple-link {
+	color: $primary;
+	cursor: pointer;
+	&:hover, &:focus {
+		color: $primary-d;
 	}
 }
