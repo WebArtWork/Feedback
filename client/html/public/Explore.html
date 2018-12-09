@@ -11,7 +11,7 @@
 			<span class="mark_sign"><span></span></span>
 			<span class="mark_text">Show only my requests</span>
 		</label>
-		<select class="input" name="" id="">
+		<select class="input" ng-model="sorting">
 			<option value="Newones">New ones</option>
 			<option value="Oldones">Old ones</option>
 			<option value="Oldones">Best rating</option>
@@ -27,9 +27,8 @@
 		</select>
 	</div>
 	<div class="requests-on-landing" title="Open request view">
-		<div class="request-landing"  ng-repeat="r in req.requests|sort:u._id:my">
+		<div class="request-landing"  ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my:sorting">
 			<i class="request-landing_close icon icon-close" ng-click="req.delete(r);" title="Remove my request"></i>
-			<div ng-click="request(r)">
 				<div class="request-landing_data">
 					<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
 					<div>{{r.created|date:'dd MMM yyyy'}}</div>

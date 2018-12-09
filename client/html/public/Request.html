@@ -8,7 +8,7 @@
 <!-- feedback form -->
 <div ng-if="view" >
 	<h4 class="ta-l">Your feedback:</h4>
-	<div class="feedback-form" ng-hide="$root.hidefeddform">
+	<div class="feedback-form" ng-if="!$root.hidefeddform">
 		<div class="feedback-form_col">
 			<h4 class="c-p">User interface</h4>
 			<fieldset class="rating">
