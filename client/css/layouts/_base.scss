@@ -72,6 +72,10 @@ body {
 				cursor: pointer;
 			}
 		}
+		@include bp-max(sm) {
+			font-size: 14px;
+			padding: 2px;
+		}
 	}
 }
 
