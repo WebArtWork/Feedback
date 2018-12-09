@@ -22,10 +22,10 @@
 	</script>
 
 </head>
-<body>
+<body ng-controller="main">
 
 	{% block topbar %}
-	<div ng-controller="main" class="topbar">
+	<div  class="topbar">
 		<div class="tb-logobox"><a href="/">WAW LOGO</a></div>
 		{% if !user %}
 			<span class="tb-login-links">
@@ -52,6 +52,32 @@
 		<script>
 			var app = angular.module('ngapp',['wcom']);
 			app.controller('main', function($scope, $http, modal, mongo, User, Request){
+				setTimeout(function(){ 
+					if(location.hash){
+						var id = location.hash.slice(3);
+						for (var i = 0; i < Request.requests.length; i++) {
+							if(id==Request.requests[i]._id){
+								var view = true;
+				            	if(User._id==Request.requests[i].author){
+				            		view = false;
+				            	}
+				            	for (var j = 0; j < Request.requests[i].feedbacks.length; j++) {
+				            		if(Request.requests[i].feedbacks[j].author==User._id){
+				            			view=false;
+				            		}
+				            	}
+				                return modal.open({
+				                    templateUrl: '/html/public/Request.html',
+				                    request: Request.requests[i],
+				                    full:true,
+				                    view:view
+				                });
+							}
+						}
+					}
+				 }, 100);
+					
+
 				$scope.login = function() {
 	                modal.open({
 	                    templateUrl: '/html/public/Login.html',
@@ -83,6 +109,7 @@
 	                    full:true,
 	                    view:view
 	                });
+	                location.hash=request._id;
 	            }
 	            $scope.createReq = function() {
 	                modal.open({

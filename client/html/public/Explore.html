@@ -5,7 +5,7 @@
 
 	<div class="welcome-section">Welcome section</div>
 	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
-	<div class="requests-on-landing" ng-controller="main">
+	<div class="requests-on-landing">
 		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my">
 			<div class="request-landing_data">
 				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
