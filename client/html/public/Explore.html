@@ -5,11 +5,11 @@
 
 	<div class="welcome-section">Welcome section</div>
 	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
-	<select class="input" name="" id="">
+	<select class="input"  ng-model="sorting">
 		<option value="Newones">New ones</option>
 		<option value="Oldones">Old ones</option>
-		<option value="Oldones">Best rating</option>
-		<option value="Oldones">Worst rating</option>
+		<option value="Bestrating">Best rating</option>
+		<option value="Worstrating">Worst rating</option>
 		<option value="BestUI">Best UI</option>
 		<option value="BestUX">Best UX</option>
 		<option value="BestPerformance">Best Performance</option>
@@ -20,7 +20,7 @@
 		<option value="MoreBugs">More Bugs</option>
 	</select>
 	<div class="requests-on-landing">
-		<div class="request-landing"  ng-repeat="r in req.requests|sort:u._id:my">
+		<div class="request-landing"  ng-repeat="r in req.requests|sort:u._id:my:sorting">
 			<div ng-click="req.delete(r);">X</div>
 			<div ng-click="request(r)">
 				<div class="request-landing_data">
