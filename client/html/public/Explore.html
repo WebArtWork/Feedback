@@ -4,12 +4,12 @@
 <div ng-controller="Users">
 
 	<div class="welcome-section">Welcome section</div>
-	<label>Show only my requests <input type="checkbox"></label>
+	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
 	<div class="requests-on-landing" ng-controller="main">
-		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests">
+		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my">
 			<div class="request-landing_data">
-				<div>Requested by: <b>{{r.author.nickname}}</b></div>
-				<div>12 May 2018</div>
+				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
+				<div>{{r.created|date:'dd MMM yyyy'}}</div>
 			</div>
 			<h1 title="Open site for review"><div>{{r.link}}</div></h1>
 			<p>{{r.description}}</p>

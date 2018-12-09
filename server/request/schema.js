@@ -3,6 +3,7 @@ var Schema = mongoose.Schema({
 	name: String,
 	description: String,
 	link: String,
+	created: Date,
 	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	feedbacks: [{
 		author: String,
@@ -22,6 +23,7 @@ Schema.methods.create = function(obj, user, sd) {
 	this.author = user._id;
 	this.name = obj.name;
 	this.link = obj.link;
+	this.created = new Date();
 	this.description = obj.description;
 }
 

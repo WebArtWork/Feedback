@@ -54,7 +54,12 @@
 			app.controller('main', function($scope, $http, modal, mongo, User, Request){
 				$scope.login = function() {
 	                modal.open({
-	                    templateUrl: '/html/public/Login.html'
+	                    templateUrl: '/html/public/Login.html',
+	                    sign: function() {
+			                modal.open({
+			                    templateUrl: '/html/public/Sign.html'
+			                });
+			            }
 	                });
 	            }
 				$scope.sign = function() {

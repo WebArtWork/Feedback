@@ -95,6 +95,7 @@ services.User = function($http, $timeout, mongo, file){
 services.Request = function($http, $timeout, mongo, file){
 	// waw crud
 		let self = this;
+
 		self.requests = mongo.get('request');
 
 		this.create = function(request){
@@ -130,11 +131,29 @@ services.Request = function($http, $timeout, mongo, file){
 						speed: feedback.speed,
 						speedcomment: feedback.speedcomment,
 						bugs: feedback.bugs,
-						bugscomment: feedback.bugscomment 
+						bugscomment: feedback.bugscomment,
+						created: new Date()
 					})
 				}
 				mongo.updateAll('request',self.requests[i]);
 			}
 		}
 	// End of service
+}
+filters.sort = function() {
+	return function(requests,userId , my) {
+
+		var newreq = []
+		for (var i = 0; i < requests.length; i++) {
+			newreq.unshift(requests[i]);
+		}
+		if(my){
+			for (var i = newreq.length-1; i >= 0; i--) {
+				if(newreq[i].author!=userId){
+					newreq.splice(i,1);
+				}
+			}
+		}
+		return newreq;
+	}
 }

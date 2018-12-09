@@ -8,7 +8,7 @@
 	},
 	"crud": {
 		"updatesAll": [{
-			"keys": ["name","description","feedbacks","link"],
+			"keys": ["name","description","feedbacks","link","created"],
 			"name": ""
 		}]
 	}
