@@ -38,16 +38,39 @@ body {
 	line-height: 1.4;
 
 	color: $black;
+	overflow: hidden;
     background: #56CCF2;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .body-part {
-	padding: 24px;
     width: 100vw;
+    height: calc(100vh - 45px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
-	@include bp-max(sm) {
-		padding: 7px;
+	&_top {
+		flex-grow: 1;
+		padding: 24px;
+		@include bp-max(sm) {
+			padding: 24px 12px;
+		}
+	}
+	&_bot {
+		text-align: center;
+		font-size: 12px;
+		text-transform: uppercase;
+		padding: 0 8px 4px;
+		a {
+			b {
+				font-weight: 600;
+			}
+			&:hover {
+				color: #ECF0F1;
+				cursor: pointer;
+			}
+		}
 	}
 }
 
@@ -59,7 +82,23 @@ body {
 	align-items: center;
 	justify-content: center;
 	@include bp-max(sm) {
-		margin-left: -7px;
-		margin-top: -7px;
+	}
+}
+
+.requests-filters {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+	@include bp-max(sm) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	select {
+		max-width: 320px;
+		@include bp-max(sm) {
+			max-width: 100%;
+			margin-top: 12px;
+		}
 	}
 }

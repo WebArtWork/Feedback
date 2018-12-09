@@ -1,27 +1,62 @@
 {% extends '__index.html' %}
 
 {% block body %}
-<div ng-controller="Users">
-
+{% if !user %}
 	<div class="welcome-section">Welcome section</div>
-	<label>Show only my requests <input type="checkbox" ng-model="my"></label>
-	<div class="requests-on-landing">
-		<div class="request-landing" ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my">
+{% endif %}
+<div class="body-part_top" ng-controller="Users">
+	<div class="requests-filters">
+		<label class="mark" title="Show requests created by me only">
+			<input type="checkbox" ng-model="my">
+			<span class="mark_sign"><span></span></span>
+			<span class="mark_text">Show only my requests</span>
+		</label>
+		<select class="input" ng-model="sorting">
+			<option value="Newones">New ones</option>
+			<option value="Oldones">Old ones</option>
+			<option value="Oldones">Best rating</option>
+			<option value="Oldones">Worst rating</option>
+			<option value="BestUI">Best UI</option>
+			<option value="BestUX">Best UX</option>
+			<option value="BestPerformance">Best Performance</option>
+			<option value="LessBugs">Less Bugs</option>
+			<option value="WorstUI">Worst UI</option>
+			<option value="WorstUX">Worst UX</option>
+			<option value="WorstPerformance">Worst Performance</option>
+			<option value="MoreBugs">More Bugs</option>
+		</select>
+	</div>
+	<div class="requests-on-landing" title="Open request view">
+		<div class="request-landing"  ng-click="request(r)" ng-repeat="r in req.requests|sort:u._id:my:sorting">
+			<i class="request-landing_close icon icon-close" ng-if="r.author==u._id" ng-click="$event.stopPropagation(); req.delete(r);" title="Remove my request"></i>
 			<div class="request-landing_data">
 				<div>Requested by: <b>{{u._users[r.author].nickname}}</b></div>
 				<div>{{r.created|date:'dd MMM yyyy'}}</div>
-				
+
 			</div>
-			<h1 title="Open site for review"><div>{{r.link}}</div></h1>
+			<h1><div>{{r.link}}</div></h1>
+			<div class="request-landing_total">
+				<div class="star-ratings-css">
+				  <div class="star-ratings-css-top" ng-style="{'width':((r.averBugs+r.averUi+r.averUx+r.averSpeed)/4)/5*100+'%'}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+
+				  <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+				</div>
+			</div>
 			<p>{{r.description}}</p>
 			<div class="request-land-ratings">
 				<span class="c-p mr"><span class="mr05">UI</span><span>{{r.averUi}}</span></span>
 				<span class="c-green mr"><span class="mr05">UX</span><span>{{r.averUx}}</span></span>
 				<span class="c-orange mr"><span class="mr05">Performance</span><span>{{r.averSpeed}}</span></span>
 				<span class="c-d mr"><span class="mr05">Bugs</span><span>{{r.averBugs}}</span></span>
-				<span class="c-z mr"><span class="mr05">TOTAL</span><span>{{(r.averBugs+r.averUi+r.averUx+r.averSpeed)/4}}</span></span>
 			</div>
 		</div>
 	</div>
 </div>
+
+<footer class="body-part_bot">
+	<span>Visit pages of our team:</span>
+	<a href="https://webart.work/" target="new"><b>Team website</b></a>,
+	<a class="ml05" href="https://www.instagram.com/webart.work/" target="new"><b>Instagram</b></a>,
+	<a class="ml05" href="https://twitter.com/WebartW"><b>Twitter</b></a>
+</footer>
 {% endblock %}

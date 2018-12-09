@@ -22,10 +22,10 @@
 	</script>
 
 </head>
-<body ng-controller="main">
+<body ng-controller="main" style="opacity: 0" ng-style="{opacity: 1}">
 
 	{% block topbar %}
-	<div  class="topbar">
+	<header  class="topbar">
 		<div class="tb-logobox"><a href="/"><img src="/img/logo-white-small.png" alt=""></a></div>
 		{% if !user %}
 			<span class="tb-login-links">
@@ -45,11 +45,8 @@
 		{% endif %}
 		</div>
 
-	</div>
+	</header>
 	{% endblock %}
-	{% if !user %}
-		<div class="welcome-section">Welcome section</div>
-	{% endif %}
 	<div class="body-part">
 		{% block body %}{% endblock %}
 	</div>

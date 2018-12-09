@@ -1,6 +1,6 @@
 .topbar {
 	display: flex;
-	width: 100vw;
+	width: 100%;
 	align-items: center;
 	justify-content: space-between;
 	height: 45px;
@@ -10,6 +10,7 @@
 	z-index: 99;
 	background: #333;
 	color: #fff;
+	border-bottom: 1px solid #ECF0F1;
 }
 .tb-right {
 	display: inline-flex;
@@ -27,9 +28,10 @@
 	vertical-align: top;
 	justify-content: center;
 	background: $primary;
-	height: 45px;
+	height: 44px;
 	text-transform: uppercase;
 	cursor: pointer;
+	padding-bottom: 2px;
 	&:hover {
 		background: $primary-d;
 	}

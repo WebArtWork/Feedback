@@ -178,18 +178,173 @@ services.Request = function($http, $timeout, mongo, file){
 				mongo.updateAll('request',self.requests[i]);
 			}
 		}
-		this.update = function(request){
-			mongo.delete('request',request);
+		this.delete = function(request){
+			mongo.delete('request', {
+				_id: request._id
+			});
 		}
 	// End of service
 }
 filters.sort = function() {
-	return function(requests,userId , my) {
-
+	return function(requests,userId , my, sorting) {
+		console.log(sorting);
 		var newreq = []
-		for (var i = 0; i < requests.length; i++) {
-			newreq.unshift(requests[i]);
+		if(!sorting||sorting=="Newones"){
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
 		}
+		if(sorting=="Oldones"){
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="Bestrating"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					var first=(requests[j].averUi+requests[j].averUx+requests[j].averSpeed+requests[j].averBugs)/4;
+					var second=(requests[j+1].averUi+requests[j+1].averUx+requests[j+1].averSpeed+requests[j+1].averBugs)/4;
+					if (second > first){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="Worstrating"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					var first=(requests[j].averUi+requests[j].averUx+requests[j].averSpeed+requests[j].averBugs)/4;
+					var second=(requests[j+1].averUi+requests[j+1].averUx+requests[j+1].averSpeed+requests[j+1].averBugs)/4;
+					if (second > first){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
+		}
+		if(sorting=="BestUI"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averUi > requests[j].averUi){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="WorstUI"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averUi > requests[j].averUi){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
+		}
+		if(sorting=="BestUX"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averUx > requests[j].averUx){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="WorstUX"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averUx > requests[j].averUx){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
+		}
+		if(sorting=="BestPerformance"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averSpeed > requests[j].averSpeed){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="WorstPerformance"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averSpeed > requests[j].averSpeed){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
+		}
+		if(sorting=="LessBugs"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averBugs > requests[j].averBugs){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.push(requests[i]);
+			}
+		}
+		if(sorting=="MoreBugs"){
+			for (var i = 0; i < requests.length; i++) {
+				for (var j = 0; j < requests.lengt-1; j++) {
+					if (requests[j+1].averBugs > requests[j].averBugs){ 
+						var t = requests[j+1]; 
+						requests[j+1] = requests[j]; 
+						requests[j] = t; 
+					}
+				}
+			}
+			for (var i = 0; i < requests.length; i++) {
+				newreq.unshift(requests[i]);
+			}
+		}
+		
+
 		if(my){
 			for (var i = newreq.length-1; i >= 0; i--) {
 				if(newreq[i].author!=userId){

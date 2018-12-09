@@ -8,7 +8,7 @@
 <!-- feedback form -->
 <div ng-if="view" >
 	<h4 class="ta-l">Your feedback:</h4>
-	<div class="feedback-form">
+	<div class="feedback-form" ng-if="!$root.hidefeddform">
 		<div class="feedback-form_col">
 			<h4 class="c-p">User interface</h4>
 			<fieldset class="rating">
@@ -75,7 +75,7 @@
 			</fieldset>
 			<textarea class="input" name="" id="" cols="30" rows="7" ng-model="feedback.bugscomment"></textarea>
 			<div class="mt ta-c pr">
-				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id);" ng-disabled="!feedback.ui||!feedback.ux||!feedback.speed||!feedback.bugs" class="btn fb-btn">Send your feedback</button>
+				<button ng-controller="Users" ng-click="req.updateFeedback(request, feedback, u._id); $root.hidefeddform=true" ng-disabled="!feedback.ui||!feedback.ux||!feedback.speed||!feedback.bugs" class="btn fb-btn">Send your feedback</button>
 			</div>
 		</div>
 	</div>

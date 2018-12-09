@@ -25,7 +25,7 @@
 }
 
 // disabled
-.btn.m_disabled {
+.btn[disabled] {
 	background: $black;
 
 	cursor: not-allowed;
