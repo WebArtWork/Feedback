@@ -187,7 +187,6 @@ services.Request = function($http, $timeout, mongo, file){
 }
 filters.sort = function() {
 	return function(requests,userId , my, sorting) {
-		console.log(sorting);
 		var newreq = []
 		if(!sorting||sorting=="Newones"){
 			for (var i = 0; i < requests.length; i++) {
