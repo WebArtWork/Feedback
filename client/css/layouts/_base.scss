@@ -84,10 +84,23 @@ body {
 	background: #fff;
 	min-height: 200px;
     width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	text-align: center;
+	font-size: 16px;
+	padding: 0 12px;
 	@include bp-max(sm) {
+	}
+	h1 {
+		margin-top: 16px !important;
+	}
+	@include bp-max(lg) {
+		min-height: 300px;
+	}
+	@include bp-max(sm) {
+		min-height: 320px;
+		font-size: 14px;
+		h1 {
+			font-size: 16px;
+		}
 	}
 }
 
@@ -105,6 +118,24 @@ body {
 		@include bp-max(sm) {
 			max-width: 100%;
 			margin-top: 12px;
+		}
+	}
+}
+
+.welcome-sections {
+	display: inline-flex;
+	max-width: 560px;
+	width: 100%;
+	margin-bottom: 24px;
+	&>div {
+		width: 25%;
+		display: inline-flex;
+		flex-direction: column;
+		h3 {
+
+		}
+		.icon {
+			font-size: 40px;
 		}
 	}
 }
