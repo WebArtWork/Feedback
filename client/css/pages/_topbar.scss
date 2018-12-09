@@ -11,11 +11,20 @@
 	background: #333;
 	color: #fff;
 }
-
+.tb-right {
+	display: inline-flex;
+}
+.tb-fake {
+	width: 60px;
+	@include bp-max(sm) {
+		display: none;
+	}
+}
 .tb-btn {
 	width: 160px;
 	display: inline-flex;
 	align-items: center;
+	vertical-align: top;
 	justify-content: center;
 	background: $primary;
 	height: 45px;
@@ -24,9 +33,30 @@
 	&:hover {
 		background: $primary-d;
 	}
+	@include bp-max(sm) {
+		width: 100px;
+    	text-align: center;
+	}
+	&._log {
+		width: 60px;
+		background: #E74C3C;
+		text-decoration: none;
+		font-size: 18px;
+    	padding: 3px 0 0 3px;
+
+		&:hover {
+			background: #C0392B;
+			text-decoration: none;
+		}
+	}
 }
 .tb-logobox {
-	width: 160px;
+	width: 220px;
+	padding-left: 12px;
+	@include bp-max(sm) {
+		width: 100px;
+		padding-left: 6px;
+	}
 }
 
 .tb-login-links {
@@ -34,7 +64,7 @@
 	.tb-link {
 		cursor: pointer;
 		&:hover {
-			color: red;
+			color: #efd47e;
 		}
 	}
 }

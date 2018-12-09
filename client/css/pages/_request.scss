@@ -32,10 +32,13 @@
 	margin-top: 24px;
 }
 .request-landing {
-	padding: 12px 8px;
-	border-left: 2px solid transparent;
-	cursor: pointer;
-	border-bottom: 1px solid #BDC3C7;
+	padding: 12px;
+	background: #fff; 
+	margin-bottom: 12px;
+    box-shadow: 1px 1px 4px #595959;
+    cursor: pointer;
+    border-bottom: 1px solid #BDC3C7;
+    border-radius: 3px;
 
 	h1 {
 		text-align: left;
@@ -44,6 +47,9 @@
 	    cursor: pointer;
 	    display: flex;
 	    text-transform: none;
+		@include bp-max(sm) {
+	    	font-size: 14px;
+		}
 	    div {
 	    	flex-grow: 1;
 	    	text-overflow: ellipsis;
@@ -54,7 +60,6 @@
     	margin: 6px 0;
 	}
 	&:hover {
-		border-left: 2px solid $primary;
 		background: #ECF0F1;
 	}
 	&_data {
@@ -68,4 +73,13 @@
 .request-land-ratings {
 	text-transform: uppercase;
 	font-weight: bold;
+		@include bp-max(sm) {
+			display: flex;
+	    	font-size: 11px;
+	    	flex-wrap: wrap;
+	    	&>span {
+	    		width: 50%;
+	    		margin: 0;
+	    	}
+		}
 }
