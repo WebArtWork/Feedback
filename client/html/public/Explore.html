@@ -3,7 +3,29 @@
 {% block body %}
 {% if !user %}
 	<div class="welcome-section">
-		<h1>Welcome to <a href="https://feedback.webart.work/">feedback.webart.work</a></h1>
+		<div>
+		<h1>Welcome to <a class="simple-link" href="https://feedback.webart.work/">feedback.webart.work</a></h1>
+		<p>Web feedback - it's awesome tool that will help you to collect opinions of people about your website.<br>Here you can create request for site feedback and rate sites of others users.</p>
+		<p>We collect ratings and comments in 4 categories:</p>
+		<div class="welcome-sections">
+			<div class="c-p">
+				<h3>UI</h3>
+				<i class="icon icon-ui"></i>
+			</div>
+			<div class="c-green">
+				<h3>UX</h3>
+				<i class="icon icon-ux"></i>
+			</div>
+			<div class="c-orange">
+				<h3>Speed</h3>
+				<i class="icon icon-speed"></i>
+			</div>
+			<div class="c-d">
+				<h3>Bugs</h3>
+				<i class="icon icon-bugs"></i>
+			</div>
+		</div>
+		</div>
 	</div>
 {% endif %}
 <div class="body-part_top" ng-controller="Users">
