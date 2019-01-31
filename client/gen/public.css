@@ -1,0 +1,92 @@
+@font-face {
+	font-family: "public";
+	src: url("public.eot?2407eaecef22615bf140692dcf6a0301?#iefix") format("embedded-opentype"),
+url("public.woff2?2407eaecef22615bf140692dcf6a0301") format("woff2"),
+url("public.woff?2407eaecef22615bf140692dcf6a0301") format("woff");
+}
+
+.icon {
+	line-height: 1;
+}
+
+.icon:before {
+	font-family: public !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.icon-add:before {
+	content: "\f101";
+}
+.icon-arrow:before {
+	content: "\f102";
+}
+.icon-bugs:before {
+	content: "\f103";
+}
+.icon-close:before {
+	content: "\f104";
+}
+.icon-code:before {
+	content: "\f105";
+}
+.icon-energy:before {
+	content: "\f106";
+}
+.icon-link:before {
+	content: "\f107";
+}
+.icon-lock:before {
+	content: "\f108";
+}
+.icon-logout:before {
+	content: "\f109";
+}
+.icon-menu:before {
+	content: "\f10a";
+}
+.icon-ok:before {
+	content: "\f10b";
+}
+.icon-settings:before {
+	content: "\f10c";
+}
+.icon-speed:before {
+	content: "\f10d";
+}
+.icon-status1:before {
+	content: "\f10e";
+}
+.icon-status2:before {
+	content: "\f10f";
+}
+.icon-status5:before {
+	content: "\f110";
+}
+.icon-tablet:before {
+	content: "\f111";
+}
+.icon-trash:before {
+	content: "\f112";
+}
+.icon-twitter:before {
+	content: "\f113";
+}
+.icon-ui:before {
+	content: "\f114";
+}
+.icon-ui2:before {
+	content: "\f115";
+}
+.icon-user:before {
+	content: "\f116";
+}
+.icon-ux:before {
+	content: "\f117";
+}
+.icon-ux2:before {
+	content: "\f118";
+}
+
+/*C:\Users\crack\Desktop\feedback/client/icons/add.svg,C:\Users\crack\Desktop\feedback/client/icons/arrow.svg,C:\Users\crack\Desktop\feedback/client/icons/bugs.svg,C:\Users\crack\Desktop\feedback/client/icons/close.svg,C:\Users\crack\Desktop\feedback/client/icons/code.svg,C:\Users\crack\Desktop\feedback/client/icons/energy.svg,C:\Users\crack\Desktop\feedback/client/icons/link.svg,C:\Users\crack\Desktop\feedback/client/icons/lock.svg,C:\Users\crack\Desktop\feedback/client/icons/logout.svg,C:\Users\crack\Desktop\feedback/client/icons/menu.svg,C:\Users\crack\Desktop\feedback/client/icons/ok.svg,C:\Users\crack\Desktop\feedback/client/icons/settings.svg,C:\Users\crack\Desktop\feedback/client/icons/speed.svg,C:\Users\crack\Desktop\feedback/client/icons/status1.svg,C:\Users\crack\Desktop\feedback/client/icons/status2.svg,C:\Users\crack\Desktop\feedback/client/icons/status5.svg,C:\Users\crack\Desktop\feedback/client/icons/tablet.svg,C:\Users\crack\Desktop\feedback/client/icons/trash.svg,C:\Users\crack\Desktop\feedback/client/icons/twitter.svg,C:\Users\crack\Desktop\feedback/client/icons/ui.svg,C:\Users\crack\Desktop\feedback/client/icons/ui2.svg,C:\Users\crack\Desktop\feedback/client/icons/user.svg,C:\Users\crack\Desktop\feedback/client/icons/ux.svg,C:\Users\crack\Desktop\feedback/client/icons/ux2.svgC:\Users\crack\Desktop\feedback/client/gen/initialize*/
