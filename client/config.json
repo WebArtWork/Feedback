@@ -5,12 +5,15 @@
 	}],
 	"lab": [{
 		"name": "admin",
+		"prod": [],
 		"files": ["1_angular.js", "angular-ui-router.min.js", "socket.io.js"]
 	}, {
 		"name": "user",
+		"prod": [],
 		"files": ["1_angular.js", "angular-ui-router.min.js", "socket.io.js"]
 	}, {
 		"name": "public",
+		"prod": [],
 		"files": ["1_angular.js", "angular-recaptcha.js"]
 	}],
 	"plugins": ["wcom"]
